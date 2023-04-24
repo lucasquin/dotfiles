@@ -1,10 +1,10 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
+    "actions": 
     [
         {
-            "command":
+            "command": 
             {
                 "action": "copy",
                 "singleLine": false
@@ -20,7 +20,7 @@
             "keys": "ctrl+shift+f"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -32,35 +32,44 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
             "colorScheme": "Dracula"
         },
-        "list":
+        "list": 
         [
             {
+                "adjustIndistinguishableColors": "never",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "cursorHeight": 100,
                 "cursorShape": "vintage",
                 "elevate": true,
-                "font":
+                "experimental.retroTerminalEffect": false,
+                "font": 
                 {
-                    "face": "CascadiaCode Nerd Font",
+                    "face": "CaskaydiaCove NFM",
                     "size": 11.0,
-                    "weight": "normal",
-                    "liga": 0
+                    "weight": "normal"
                 },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "icon": "\ud83d\uddd4",
                 "name": "Terminal",
-                "padding": "20"
+                "opacity": 94,
+                "padding": "0",
+                "useAcrylic": false,
+                "useAtlasEngine": false
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#0C0C0C",
