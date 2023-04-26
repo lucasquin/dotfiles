@@ -57,9 +57,9 @@
                 "hidden": false,
                 "icon": "\ud83d\uddd4",
                 "name": "Terminal",
-                "opacity": 94,
-                "padding": "0",
-                "useAcrylic": false,
+                "opacity": 50,
+                "padding": "10",
+                "useAcrylic": true,
                 "useAtlasEngine": false
             },
             {
@@ -302,5 +302,7 @@
             "yellow": "#808000"
         }
     ],
-    "themes": []
+    "showTabsInTitlebar": true,
+    "themes": [],
+    "useAcrylicInTabRow": true
 }
