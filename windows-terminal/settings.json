@@ -57,8 +57,8 @@
                 "hidden": false,
                 "icon": "\ud83d\uddd4",
                 "name": "Terminal",
-                "opacity": 50,
-                "padding": "10",
+                "opacity": 65,
+                "padding": "8, 8, 8, 0",
                 "useAcrylic": true,
                 "useAtlasEngine": false
             },
