@@ -1,10 +1,9 @@
-## Config to open large files
-## By lucasquin
+" Config to open large files
+" By lucasquin
 
 set syntax=off
 set ft=
 set nowrap
 set nofoldenable
 set ttyfast
-set nohsearch
 
