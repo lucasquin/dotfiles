@@ -120,6 +120,11 @@ fi
 # Custom aliases by lucasquin
 #############################
 
-# to copy output text
-alias copy='xclip -selection clipboard'
+alias copy='xclip -selection clipboard' # to copy output text'
 alias cls='clear'
+
+#############################
+# asdf config
+#############################
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
