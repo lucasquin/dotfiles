@@ -3,4 +3,6 @@ if not _ then
     return
 end
 
-ibl.setup() 
+ibl.setup({
+    scope = { enabled = false }
+})

@@ -1,31 +1,24 @@
-local _, dracula = pcall(require, "dracula")
+local _, tokyonight = pcall(require, "tokyonight")
 if not _ then
     return
 end
 
-dracula.setup({
-    show_end_of_buffer = true,
-    transparent_bg = true,
-    lualine_bg_color = nil,
-    italic_comment = true,
-    overrides = {},
-})
-
-local _, transparent = pcall(require, "transparent")
-if not _ then
-    return
-end
-
-transparent.setup({
-    groups = {
-        'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
-        'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
-        'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-        'SignColumn', 'CursorLineNr', 'EndOfBuffer',
+tokyonight.setup({
+    style = "storm",
+    light_style = "day",
+    transparent = true,
+    terminal_colors = true,
+    styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = {},
+        variables = {},
+        sidebars = "dark",
+        floats = "dark",
     },
-    extra_groups = {
-        "NormalFloat",
-        "NeoTreeNormal"
-    },
-    exclude_groups = {},
+    sidebars = { "qf", "help" },
+    day_brightness = 0.3,
+    hide_inactive_statusline = false,
+    dim_inactive = false,
+    lualine_bold = true,
 })

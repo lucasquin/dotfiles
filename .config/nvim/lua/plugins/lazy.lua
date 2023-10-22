@@ -22,8 +22,7 @@ local plugins = {
     { "nvim-lualine/lualine.nvim" },
 
     -- Colorscheme
-    { "Mofiqul/dracula.nvim" },
-    { "xiyaowong/transparent.nvim" },
+    { "folke/tokyonight.nvim" },
 
     -- Syntax
     { "nvim-treesitter/nvim-treesitter" },

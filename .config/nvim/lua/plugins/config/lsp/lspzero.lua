@@ -29,9 +29,17 @@ lspzero.set_preferences({
     sign_icons = { error = " ", warn = " ", hint = "ﴞ ", info = " " }
 })
 
--- local sources = lspzero.defaults.cmp_sources()
+local sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'luasnip' },
+    { name = 'snippy' },
+    { name = 'path' },
+}, {
+    { name = 'buffer' },
+})
 
-table.insert({}, { name = "nvim_lsp_signature_help" })
+table.insert(sources, { name = "nvim_lsp_signature_help" })
 
 lspzero.configure("lua_ls", {
     settings = {
