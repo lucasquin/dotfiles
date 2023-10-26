@@ -1,4 +1,4 @@
-local _, lspzero = pcall(require, "lsp-zero")
+local _, cmp = pcall(require, "cmp")
 if not _ then
     return
 end
@@ -13,21 +13,10 @@ if not _ then
     return
 end
 
-local _, cmp = pcall(require, "cmp")
-if not _ then
-    return
-end
-
 local border_opts = {
     border = "single",
     winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
 }
-
-lspzero.preset("recommended")
-
-lspzero.set_preferences({
-    sign_icons = { error = " ", warn = " ", hint = "ﴞ ", info = " " }
-})
 
 local sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -37,24 +26,8 @@ local sources = cmp.config.sources({
     { name = 'path' },
 }, {
     { name = 'buffer' },
+    { name = 'nvim_lsp_signature_help' }
 })
-
-table.insert(sources, { name = "nvim_lsp_signature_help" })
-
-lspzero.configure("lua_ls", {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-})
-
-lspzero.setup()
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -98,7 +71,7 @@ cmp.setup({
     },
     formatting = {
         format = lspkind.cmp_format({
-            mode = "symbol_text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+            mode = "symbol_text",
             maxwidth = 50,
             ellipsis_char = "...",
         }),

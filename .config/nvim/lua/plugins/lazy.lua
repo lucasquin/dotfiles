@@ -63,37 +63,27 @@ local plugins = {
 
     -- Snippets
     { "L3MON4D3/LuaSnip",                   dependencies = { "rafamadriz/friendly-snippets" } },
-    { "saadparwaiz1/cmp_luasnip" },
 
     -- LSP
     { "onsails/lspkind.nvim" },
     { "nvimdev/lspsaga.nvim" },
     { "jay-babu/mason-null-ls.nvim" },
-    {
-        "VonHeikemen/lsp-zero.nvim",
-        dependencies = {
-            -- LSP Support
-            { "neovim/nvim-lspconfig" },
-            { "williamboman/mason.nvim" },
-            { "williamboman/mason-lspconfig.nvim" },
+    { "VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
+    { "neovim/nvim-lspconfig" },
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
 
-            -- Autocompletion
-            { "hrsh7th/nvim-cmp" },
-            { "hrsh7th/cmp-buffer" },
-            { "hrsh7th/cmp-path" },
-            { "saadparwaiz1/cmp_luasnip" },
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "hrsh7th/cmp-nvim-lua" },
+    -- Autocompletion
+    { "hrsh7th/nvim-cmp" },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
+    { "saadparwaiz1/cmp_luasnip" },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-nvim-lua" },
+    { "hrsh7th/cmp-nvim-lsp-signature-help" },
 
-            -- Signature
-            { "hrsh7th/cmp-nvim-lsp-signature-help" },
-
-            -- Snippets
-            { "L3MON4D3/LuaSnip" },
-            { "rafamadriz/friendly-snippets" },
-            { "jose-elias-alvarez/null-ls.nvim" },
-        }
-    },
+    -- Format
+    { "jose-elias-alvarez/null-ls.nvim" },
 
     -- ChatGPT
     { "jackMort/ChatGPT.nvim" },
