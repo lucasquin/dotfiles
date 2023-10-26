@@ -61,5 +61,6 @@ dracula.setup({
     italic_comment = true,
     overrides = {
         NeoTreeNormal = { bg = "#282A36" },
+        NeoTreeNormalNC = { bg = "#282A36" },
     },
 })
