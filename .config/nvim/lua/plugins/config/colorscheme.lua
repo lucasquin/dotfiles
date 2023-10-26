@@ -59,5 +59,7 @@ dracula.setup({
     transparent_bg = true,
     lualine_bg_color = "#44475a",
     italic_comment = true,
-    overrides = {},
+    overrides = {
+        NeoTreeNormal = { bg = "#282A36" },
+    },
 })
