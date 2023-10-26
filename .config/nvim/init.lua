@@ -23,7 +23,6 @@ require("plugins.config.template-string")
 require("plugins.config.url-open")
 
 require("plugins.config.lsp.mason")
-require("plugins.config.lsp.lspzero")
 require("plugins.config.lsp.lspsaga")
 require("plugins.config.lsp.cmp")
 require("plugins.config.lsp.null-ls")
