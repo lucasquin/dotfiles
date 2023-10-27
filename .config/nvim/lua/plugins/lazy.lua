@@ -67,8 +67,7 @@ local plugins = {
     -- LSP
     { "onsails/lspkind.nvim" },
     { "nvimdev/lspsaga.nvim" },
-    { "jay-babu/mason-null-ls.nvim" },
-    { "VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
+    { "VonHeikemen/lsp-zero.nvim",          branch = "v3.x" },
     { "neovim/nvim-lspconfig" },
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
@@ -81,9 +80,6 @@ local plugins = {
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
     { "hrsh7th/cmp-nvim-lsp-signature-help" },
-
-    -- Format
-    { "jose-elias-alvarez/null-ls.nvim" },
 
     -- ChatGPT
     { "jackMort/ChatGPT.nvim" },

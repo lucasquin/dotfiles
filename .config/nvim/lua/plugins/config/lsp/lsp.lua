@@ -3,8 +3,8 @@ if not _ then
     return
 end
 
-lspzero.on_attach(function(client, bufnr)
-  lspzero.default_keymaps({buffer = bufnr})
+lspzero.on_attach(function(_, bufnr)
+    lspzero.default_keymaps({ buffer = bufnr })
 end)
 
 lspzero.set_preferences({
@@ -25,16 +25,7 @@ end
 
 mason_lspconfig.setup({
     automatic_installation = true,
-      handlers = {
-    lspzero.default_setup,
-  }
-})
-
-local _, mason_null_ls = pcall(require, "mason-null-ls")
-if not _ then
-    return
-end
-
-mason_null_ls.setup({
-    automatic_installation = true,
+    handlers = {
+        lspzero.default_setup,
+    }
 })
