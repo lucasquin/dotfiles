@@ -84,7 +84,7 @@ Map("n", "<S-F12>", ":Lspsaga hover_doc<CR>", { desc = "View hover doc" })
 Map("n", "<C-S-F12>", ":Lspsaga finder<CR>", { desc = "Find references" })
 Map("n", "<leader>ca", ":Lspsaga code_action<CR>", { desc = "View code actions" })
 Map("n", "<leader>rn", ":Lspsaga rename<CR>", { desc = "Rename" })
-Map("n", "<leader>fm", ":lua vim.lsp.buf.format({ async = true })<CR>", { desc = "Format" })
+Map("n", "<leader>fm", ":Format<CR>", { desc = "Format" })
 
 -- Code folding
 Map('n', '<C-m><C-p>', ":lua require('ufo').openAllFolds()<CR>")

@@ -26,6 +26,5 @@ require("plugins.config.lsp.lsp")
 require("plugins.config.lsp.lspsaga")
 require("plugins.config.lsp.cmp")
 
-
 require("core.colorscheme")
 require("core.keymaps")
