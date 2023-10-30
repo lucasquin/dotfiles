@@ -1,0 +1,162 @@
+[http]
+	sslVerify = true
+	cookiefile = ~/.gitcookies
+
+[color]
+	ui = true
+	status = auto
+	diff = auto
+	branch = auto
+	grep = auto
+
+[color "diff-highlight"]
+	oldNormal = red
+	oldHighlight = 160 bold white
+	newNormal = green
+	newHighlight = 65 bold white
+
+[grep]
+	lineNumber = true
+
+[alias]
+	ad = !git add $@ && git st
+	ap = add -p
+	br = branch
+	ca = commit --amend
+	caa = commit --amend --reuse-message HEAD
+	cf = clean -df
+	cm = commit
+	cn = clean -dn
+	co = checkout
+	cp = cherry-pick
+	dc = diff -w --diff-algorithm=default --cached
+	dh = diff -w --histogram
+	dhc = diff -w --color-words --histogram
+	di = diff -w --diff-algorithm=default
+	dic = diff -w --color-words --diff-algorithm=default
+	dn = diff --name-only
+	dp = diff -w --patience
+	dpc = diff -w --color-words --patience
+	dt = difftool
+	ll = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+	lo = log --decorate --graph --name-status --oneline
+	po = pull origin master
+	pu = !git push origin $(git rev-parse --abbrev-ref HEAD)
+	pul = !git stash && git pull && git stash pop
+	re = remote
+	rh = reset --hard
+	rl = reflog
+	ri = rev-list --pretty --oneline
+	rt = revert
+	rv = remote -v
+	ra = remote-add
+	sm = submodule
+	st = status -sb
+	su = !git br --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD)
+	sd = !git br --set-upstream-to=delphinus/$(git rev-parse --abbrev-ref HEAD)
+	# \x23 means `#`
+	ds = !git st --porcelain | grep -v '^[AMD]' | grep -v '^\\x23' | perl -pe 's/^UU\\s+//'
+	wk = worktree
+	clean-local = !git branch --merged | egrep -v '(^\\*|master|main)' | xargs git branch -d
+	show-name = diff-tree --no-commit-id --name-only -r
+
+[url "git@github.com:"]
+	pushInsteadOf = "git://github.com/"
+	pushInsteadOf = "https://github.com/"
+
+[user]
+	email = lucaslquintino@gmail.com
+	name = lucasquin 
+	;signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIACxEJ...
+
+[github]
+[core]
+	;excludesfile = ~/Repository/dotfiles/.gitignore-global
+	;attributesfile = ~/Repository/dotfiles/.gitattributes
+	autocrlf = false
+	quotepath = false
+	editor = vim
+	pager = delta
+
+[github]
+	user = lucasquin 
+
+[pull]
+	rebase = true
+
+[rebase]
+	autosquash = true
+
+[tig]
+	tab-size = 4
+	line-graphics = utf-8
+	main-view = line-number:no,interval=5 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
+	diff-highlight = true
+	mouse = true
+
+[tig "bind"]
+	generic = G none
+	main = R !git rebase -i %(commit)
+	main = D !git difftool %(commit)~ %(commit)
+	main = Y @sh -c 'printf %s %(commit) | pbcopy'
+
+[pager]
+	branch = false
+
+[interactive]
+	diffFilter = delta --color-only
+
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+
+[include]
+	path = .gitconfig_local
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[diff]
+	algorithm = histogram
+	renames = true
+	indentHeuristic = true
+	colorMoved = dimmed_zebra
+	tool = nvimdiff
+
+[difftool "nvr"]
+	cmd = nvr -s -d $LOCAL $REMOTE
+
+[difftool "nvimdiff"]
+	cmd = nvim -R -d -c 'wincmd l | nnoremap q <Cmd>qa<CR>' -d $LOCAL $REMOTE
+
+[merge]
+	ff = false
+	tool = nvimdiff
+
+[mergetool "nvr"]
+	cmd = nvr -s -d $LOCAL $BASE $REMOTE $MERGED -c 'wincmd J | wincmd ='
+
+[mergetool "nvimdiff"]
+	cmd = nvim -d -c '4wincmd w | wincmd J | nnoremap q <Cmd>qa<CR>' $LOCAL $BASE $REMOTE $MERGED
+
+[commit]
+	gpgsign = true
+	template = ~/Repository/dotfiles/commit-template.txt
+
+[init]
+	defaultBranch = main
+
+[delta]
+	features = side-by-side line-numbers decorations
+	whitespace-error-style = 22 reverse
+	syntax-theme = Dracula 
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+	line-numbers-left-format = {nm:^4}⡇
+

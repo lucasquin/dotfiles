@@ -1,0 +1,36 @@
+
+
+# # Mensagens de commit semânticas
+#
+# Veja como uma pequena mudança no estilo da sua mensagem de commit pode torná-lo um programador melhor.
+#
+# Formato: `<tipo>(<escopo>): <mensagem>`
+#
+# `<escopo> é opcional
+#
+# ## Exemplo 
+#
+# ```
+# feat: adicionar footer
+# ^--^  ^------------^
+# |     |
+# |     +-> Resumo do que foi feito
+# |
+# +-------> Tipos: chore, docs, feat, fix, refactor, style, or test.
+# ```
+#
+# Mais Examplos:
+#
+# - `feat`: (nova feature para o usuário, NÂO uma nova feature de script)
+# - `fix`: (correção de bug para o usuário, NÂO uma correção de bug em script)
+# - `docs`: (Mudanças na documentação)
+# - `style`: (formatação, e adição de ';', etc; Nada que mude o código de produção)
+# - `refactor`: (refatorar o código de produção, Ex. renomear variável)
+# - `test`: (adicionar testes que estão faltando, refatorar testes; sem mudanças no código de produção)
+# - `chore`: (atualizar tarefas pesadas etc; Nada que mude o código de produção)
+#
+# Referencias:
+#
+# - https://www.conventionalcommits.org/
+# - https://seesparkbox.com/foundry/semantic_commit_messages
+# - http://karma-runner.github.io/1.0/dev/git-commit-msg.html
