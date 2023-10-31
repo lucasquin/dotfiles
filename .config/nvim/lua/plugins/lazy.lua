@@ -24,6 +24,7 @@ local plugins = {
 	-- Colorscheme
 	{ "folke/tokyonight.nvim" },
 	{ "Mofiqul/dracula.nvim" },
+	{ "maxmx03/solarized.nvim" },
 
 	-- Syntax
 	{ "nvim-treesitter/nvim-treesitter" },
