@@ -13,6 +13,11 @@ if not _ then
 	return
 end
 
+local _, lspconfig = pcall(require, "lspconfig")
+if not _ then
+	return
+end
+
 local _, null_ls = pcall(require, "null-ls")
 if not _ then
 	return
@@ -46,6 +51,16 @@ mason_lspconfig.setup({
 	automatic_installation = true,
 	handlers = {
 		lspzero.default_setup,
+	},
+})
+
+lspconfig.lua_ls.setup({
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
 	},
 })
 
