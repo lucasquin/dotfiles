@@ -28,6 +28,10 @@ if not _ then
 	return
 end
 
+--
+-- LSP config
+--
+
 lspzero.on_attach(function(_, bufnr)
 	lspzero.default_keymaps({ buffer = bufnr })
 	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
@@ -37,7 +41,7 @@ lspzero.on_attach(function(_, bufnr)
 				return client.name == "null-ls"
 			end,
 		})
-		print("File formatted")
+		print("File Formatted")
 	end, { desc = "Format current buffer with LSP" })
 end)
 
@@ -64,14 +68,39 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-null_ls.setup({
-	sources = {
-		null_ls.builtins.formatting.prettierd,
-		null_ls.builtins.formatting.stylua,
-	},
-})
+--
+-- Formating & Linter
+--
 
 mason_null_ls.setup({
-	ensure_installed = { "stylua", "prettierd" },
+	ensure_installed = {
+		"prettier",
+		"stylua",
+		"eslint_d",
+	},
 	automatic_installation = true,
+})
+
+local null_ls_utils = require("null-ls.utils")
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
+local code_actions = null_ls.builtins.code_actions
+
+null_ls.setup({
+	root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
+	sources = {
+		formatting.stylua,
+		formatting.prettier.with({
+			extra_filetypes = { "svelte" },
+		}),
+		diagnostics.eslint_d.with({
+			condition = function(utils)
+				return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" })
+			end,
+		}),
+		diagnostics.markdownlint,
+		null_ls.builtins.completion.spell,
+		code_actions.gitsigns,
+		code_actions.eslint_d,
+	},
 })
