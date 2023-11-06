@@ -13,60 +13,45 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	-- Commons
-	{ "nvim-tree/nvim-web-devicons" },
+	-- Dependencies
 	{ "nvim-lua/plenary.nvim" },
+	{ "MunifTanjim/nui.nvim" },
+	{ "s1n7ax/nvim-window-picker" },
 	{ "rcarriga/nvim-notify" },
 
-	-- Status bar
-	{ "nvim-lualine/lualine.nvim" },
-
-	-- Colorscheme
-	{ "folke/tokyonight.nvim" },
-	{ "Mofiqul/dracula.nvim" },
-	{ "maxmx03/solarized.nvim" },
-
-	-- Syntax
-	{ "nvim-treesitter/nvim-treesitter" },
-
-	-- File explorer
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"s1n7ax/nvim-window-picker",
-		},
-	},
-
-	-- Fuzzy finder
-	{ "nvim-telescope/telescope.nvim", tag = "0.1.1" },
-
-	-- Editor
+	{ "nvim-neo-tree/neo-tree.nvim" },
 	{ "preservim/nerdcommenter" },
 	{ "fedepujol/move.nvim" },
-	{ "uga-rosa/ccc.nvim" },
 	{ "windwp/nvim-autopairs" },
 	{ "windwp/nvim-ts-autotag" },
-	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
 	{ "luukvbaal/statuscol.nvim" },
 	{ "axelvc/template-string.nvim" },
 	{ "godlygeek/tabular" },
 	{ "sontungexpt/url-open" },
 	{ "VidocqH/auto-indent.nvim" },
-
-	-- Git
 	{ "lewis6991/gitsigns.nvim", enabled = vim.fn.executable("git") == 1, ft = "gitcommit" },
+	{ "jackMort/ChatGPT.nvim" },
 
-	-- Autocompletion
-	{ "hrsh7th/nvim-cmp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
+	-- Colorschemes
+	{ "folke/tokyonight.nvim" },
+	{ "Mofiqul/dracula.nvim" },
+	{ "maxmx03/solarized.nvim" },
 
-	-- Snippets
-	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
+	-- UI
+	{ "nvim-tree/nvim-web-devicons" },
+	{ "uga-rosa/ccc.nvim" },
+	{ "lukas-reineke/indent-blankline.nvim" },
+	{ "tzachar/local-highlight.nvim" },
+	{ "nvim-lualine/lualine.nvim" },
 
-	-- LSP
+	-- Syntax highlight
+	{ "nvim-treesitter/nvim-treesitter" },
+
+	-- Fuzzy finder
+	{ "nvim-telescope/telescope.nvim", tag = "0.1.1" },
+
+	-- LSP && Formating
 	{ "onsails/lspkind.nvim" },
 	{ "nvimdev/lspsaga.nvim" },
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
@@ -76,23 +61,15 @@ local plugins = {
 	{ "jay-babu/mason-null-ls.nvim" },
 	{ "nvimtools/none-ls.nvim" },
 
-	-- Autocompletion
+	-- Completion && Snippets
 	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
-	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-nvim-lua" },
 	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-	{ "ray-x/cmp-treesitter" },
-	{ "lukas-reineke/cmp-rg" },
 	{ "lukas-reineke/cmp-under-comparator" },
-
-	-- ChatGPT
-	{ "jackMort/ChatGPT.nvim" },
-
-	-- Highlight local cursor
-	{ "tzachar/local-highlight.nvim" },
+	{ "saadparwaiz1/cmp_luasnip" },
+	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
 }
 
 local opts = {}

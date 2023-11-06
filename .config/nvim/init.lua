@@ -2,6 +2,7 @@ require("core.settings")
 require("core.autocmds")
 require("core.neovide")
 
+-- any comment
 require("plugins.lazy")
 require("plugins.config.colorscheme")
 require("plugins.config.webdevicons")
@@ -23,9 +24,9 @@ require("plugins.config.template-string")
 require("plugins.config.url-open")
 require("plugins.config.ccc")
 
-require("plugins.config.lsp.lsp")
-require("plugins.config.lsp.lspsaga")
-require("plugins.config.lsp.cmp")
+require("plugins.config.lsp")
+require("plugins.config.lspsaga")
+require("plugins.config.cmp")
 
 require("core.colorscheme")
 require("core.keymaps")
