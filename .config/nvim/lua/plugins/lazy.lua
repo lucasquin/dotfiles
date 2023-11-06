@@ -53,6 +53,7 @@ local plugins = {
 	{ "axelvc/template-string.nvim" },
 	{ "godlygeek/tabular" },
 	{ "sontungexpt/url-open" },
+	{ "VidocqH/auto-indent.nvim" },
 
 	-- Git
 	{ "lewis6991/gitsigns.nvim", enabled = vim.fn.executable("git") == 1, ft = "gitcommit" },
