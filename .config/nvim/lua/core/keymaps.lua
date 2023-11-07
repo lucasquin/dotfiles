@@ -1,25 +1,25 @@
 -- Leader key
-vim.g.mapleader = "\\" -- Leader key 
+vim.g.mapleader = "\\" -- Leader key
 
 -- Function for create maps
 function Map(mode, lhs, rhs, opts)
-    local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 function Resize_buffer(direction)
-    if direction == "up" then
-        vim.cmd("resize -1")
-    elseif direction == "down" then
-        vim.cmd("resize +1")
-    elseif direction == "left" then
-        vim.cmd("vertical resize +1")
-    elseif direction == "right" then
-        vim.cmd("vertical resize -1")
-    end
+	if direction == "up" then
+		vim.cmd("resize -1")
+	elseif direction == "down" then
+		vim.cmd("resize +1")
+	elseif direction == "left" then
+		vim.cmd("vertical resize +1")
+	elseif direction == "right" then
+		vim.cmd("vertical resize -1")
+	end
 end
 
 -- Paste
@@ -87,5 +87,5 @@ Map("n", "<leader>rn", ":Lspsaga rename<CR>", { desc = "Rename" })
 Map("n", "<leader>fm", ":Format<CR>", { desc = "Format" })
 
 -- Code folding
-Map('n', '<C-m><C-p>', ":lua require('ufo').openAllFolds()<CR>")
-Map('n', '<A-m><A-p>', ":lua require('ufo').closeAllFolds()<CR>")
+Map("n", "<C-m><C-p>", ":lua require('ufo').openAllFolds()<CR>")
+Map("n", "<A-m><A-p>", ":lua require('ufo').closeAllFolds()<CR>")

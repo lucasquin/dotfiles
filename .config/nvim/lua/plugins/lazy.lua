@@ -13,62 +13,96 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	-- Dependencies
-	{ "nvim-lua/plenary.nvim" },
-	{ "MunifTanjim/nui.nvim" },
-	{ "s1n7ax/nvim-window-picker" },
-	{ "rcarriga/nvim-notify" },
+	-- File explorer
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+			"3rd/image.nvim",
+		},
+	},
 
-	{ "nvim-neo-tree/neo-tree.nvim" },
+	-- Useful
 	{ "preservim/nerdcommenter" },
 	{ "fedepujol/move.nvim" },
 	{ "windwp/nvim-autopairs" },
 	{ "windwp/nvim-ts-autotag" },
 	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
 	{ "luukvbaal/statuscol.nvim" },
-	{ "axelvc/template-string.nvim" },
+	{ "axelvc/template-string.nvim", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 	{ "godlygeek/tabular" },
-	{ "sontungexpt/url-open" },
+	{ "sontungexpt/url-open", event = "VeryLazy", cmd = "URLOpenUnderCursor" },
 	{ "VidocqH/auto-indent.nvim" },
 	{ "lewis6991/gitsigns.nvim", enabled = vim.fn.executable("git") == 1, ft = "gitcommit" },
-	{ "jackMort/ChatGPT.nvim" },
 
 	-- Colorschemes
 	{ "folke/tokyonight.nvim" },
 	{ "Mofiqul/dracula.nvim" },
-	{ "maxmx03/solarized.nvim" },
 
 	-- UI
-	{ "nvim-tree/nvim-web-devicons" },
 	{ "uga-rosa/ccc.nvim" },
-	{ "lukas-reineke/indent-blankline.nvim" },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 	{ "tzachar/local-highlight.nvim" },
 	{ "nvim-lualine/lualine.nvim" },
 
 	-- Syntax highlight
-	{ "nvim-treesitter/nvim-treesitter" },
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
 	-- Fuzzy finder
-	{ "nvim-telescope/telescope.nvim", tag = "0.1.1" },
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.4",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	},
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	},
 
 	-- LSP && Formating
 	{ "onsails/lspkind.nvim" },
-	{ "nvimdev/lspsaga.nvim" },
+	{
+		"nvimdev/lspsaga.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{ "neovim/nvim-lspconfig" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	{ "jay-babu/mason-null-ls.nvim" },
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"nvimtools/none-ls.nvim",
+		},
+	},
 	{ "nvimtools/none-ls.nvim" },
 
 	-- Completion && Snippets
-	{ "hrsh7th/nvim-cmp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-	{ "lukas-reineke/cmp-under-comparator" },
-	{ "saadparwaiz1/cmp_luasnip" },
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+			{ "lukas-reineke/cmp-under-comparator" },
+			{ "saadparwaiz1/cmp_luasnip" },
+		},
+	},
 	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
 }
 

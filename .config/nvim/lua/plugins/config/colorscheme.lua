@@ -6,7 +6,7 @@ end
 tokyonight.setup({
 	style = "storm",
 	light_style = "day",
-	transparent = true,
+	transparent = false,
 	terminal_colors = true,
 	styles = {
 		comments = { italic = true },
@@ -65,46 +65,3 @@ dracula.setup({
 	},
 })
 
-local _, solarized = pcall(require, "solarized")
-if not _ then
-	return
-end
-
-solarized.setup({
-	transparent = false,
-	styles = {
-		comments = {},
-		functions = {},
-		variables = {},
-		numbers = {},
-		constants = {},
-		parameters = {},
-		keywords = {},
-		types = {},
-	},
-	enables = {
-		bufferline = true,
-		cmp = true,
-		diagnostic = true,
-		dashboard = true,
-		editor = true,
-		gitsign = true,
-		hop = true,
-		indentblankline = true,
-		lsp = true,
-		lspsaga = true,
-		navic = true,
-		neotree = true,
-		notify = true,
-		semantic = true,
-		syntax = true,
-		telescope = true,
-		tree = true,
-		treesitter = true,
-		whichkey = true,
-		mini = true,
-	},
-	highlights = {},
-	colors = {},
-	theme = "neo",
-})
