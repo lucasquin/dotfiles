@@ -1,3 +1,4 @@
+require("health")
 require("core.settings")
 require("core.autocmds")
 
@@ -25,3 +26,4 @@ require("plugins.config.cmp")
 
 require("core.colorscheme")
 require("core.keymaps")
+

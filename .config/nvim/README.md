@@ -7,7 +7,7 @@ AsteroidVim ☄️
   ---
   
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
-- [Neovim 0.8+](https://github.com/neovim/neovim/releases/tag/stable)
+- [Neovim 0.9+](https://github.com/neovim/neovim/releases/tag/stable)
 - [Tree-sitter CLI](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md)
 - [ripgrep](https://github.com/BurntSushi/ripgrep) - live grep telescope search (`<leader>fg`)
 - [C compiler](https://gcc.gnu.org/)
@@ -42,8 +42,6 @@ These are the default keymaps, in the following shortcuts, the `<leader>` key is
     | `<leader>ca`                              | Normal          | Code action                                         |
     | `<leader>rn`                              | Normal          | Rename                                              |
     | `<leader>fm`                              | Normal          | Format file                                         |
-    | `<leader>do`                              | Normal          | Git diff view open                                  |
-    | `<leader>dc`                              | Normal          | Git diff view close                                 |
     | `<Alt + {h,j,k,l}>`                       | Normal - View   | Move line / lines                                   |
 
 </details>

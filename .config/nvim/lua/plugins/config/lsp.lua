@@ -40,6 +40,7 @@ lspzero.on_attach(function(_, bufnr)
 			filter = function(client)
 				return client.name == "null-ls"
 			end,
+			timeout_ms = 8000
 		})
 		print("File Formatted")
 	end, { desc = "Format current buffer with LSP" })

@@ -42,10 +42,10 @@ local plugins = {
 	{ "Mofiqul/dracula.nvim" },
 
 	-- UI
-	{ "uga-rosa/ccc.nvim" },
+	{ "uga-rosa/ccc.nvim", event = "VeryLazy" },
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl" },
-	{ "tzachar/local-highlight.nvim" },
-	{ "nvim-lualine/lualine.nvim" },
+	{ "tzachar/local-highlight.nvim", event = "VeryLazy" },
+	{ "nvim-lualine/lualine.nvim", event = "VeryLazy" },
 
 	-- Syntax highlight
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
@@ -94,13 +94,14 @@ local plugins = {
 	-- Completion && Snippets
 	{
 		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		dependencies = {
+			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
-			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "saadparwaiz1/cmp_luasnip" },
 			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 			{ "lukas-reineke/cmp-under-comparator" },
-			{ "saadparwaiz1/cmp_luasnip" },
 		},
 	},
 	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },

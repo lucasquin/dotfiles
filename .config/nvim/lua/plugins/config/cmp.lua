@@ -18,6 +18,8 @@ local border_opts = {
 	winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
 }
 
+local defaults = require("cmp.config.default")()
+
 cmp.setup({
 	active = true,
 	on_config_done = nil,
@@ -52,55 +54,13 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(border_opts),
 	},
 	sources = {
-		{
-			name = "copilot",
-			max_item_count = 3,
-			trigger_characters = {
-				{
-					".",
-					":",
-					"(",
-					"'",
-					'"',
-					"[",
-					",",
-					"#",
-					"*",
-					"@",
-					"|",
-					"=",
-					"-",
-					"{",
-					"/",
-					"\\",
-					"+",
-					"?",
-					" ",
-				},
-			},
-		},
-		{
-			name = "nvim_lsp",
-			entry_filter = function(entry, ctx)
-				local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
-				if kind == "Snippet" and ctx.prev_context.filetype == "java" then
-					return false
-				end
-				return true
-			end,
-		},
-
+		{ name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "path" },
 		{ name = "luasnip" },
-		{ name = "cmp_tabnine" },
-		{ name = "nvim_lua" },
+		{ name = "path" },
+	},
+	{
 		{ name = "buffer" },
-		{ name = "calc" },
-		{ name = "emoji" },
-		{ name = "treesitter" },
-		{ name = "crates" },
-		{ name = "tmux" },
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({
@@ -126,22 +86,5 @@ cmp.setup({
 			end
 		end,
 	},
-	cmdline = {
-		enable = false,
-		options = {
-			{
-				type = ":",
-				sources = {
-					{ name = "path" },
-					{ name = "cmdline" },
-				},
-			},
-			{
-				type = { "/", "?" },
-				sources = {
-					{ name = "buffer" },
-				},
-			},
-		},
-	},
+	sorting = defaults.sorting,
 })
