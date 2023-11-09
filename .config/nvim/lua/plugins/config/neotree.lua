@@ -34,5 +34,18 @@ neotree.setup({
 			expander_expanded = "",
 			expander_highlight = "NeoTreeExpander",
 		},
+		git_status = {
+			symbols = {
+				added = "",
+				modified = "●",
+				deleted = "",
+				renamed = "",
+				untracked = "",
+				ignored = "",
+				unstaged = "",
+				staged = "",
+				conflict = "",
+			},
+		},
 	},
 })
