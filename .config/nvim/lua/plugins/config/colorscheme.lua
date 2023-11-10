@@ -34,4 +34,3 @@ dracula.setup({
 	lualine_bg_color = "#44475a",
 	italic_comment = true,
 })
-

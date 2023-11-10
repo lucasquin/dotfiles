@@ -40,7 +40,7 @@ lspzero.on_attach(function(_, bufnr)
 			filter = function(client)
 				return client.name == "null-ls"
 			end,
-			timeout_ms = 8000
+			timeout_ms = 8000,
 		})
 		print("File Formatted")
 	end, { desc = "Format current buffer with LSP" })
@@ -100,7 +100,6 @@ null_ls.setup({
 			end,
 		}),
 		diagnostics.markdownlint,
-		null_ls.builtins.completion.spell,
 		code_actions.gitsigns,
 		code_actions.eslint_d,
 	},
