@@ -57,6 +57,7 @@ mason_lspconfig.setup({
 	handlers = {
 		lspzero.default_setup,
 	},
+	ensure_installed = { "lua_ls", "tsserver", "jsonls", "html", "cssls" },
 })
 
 lspconfig.lua_ls.setup({
