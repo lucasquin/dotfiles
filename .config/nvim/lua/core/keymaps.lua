@@ -38,6 +38,9 @@ Map("i", "<S-Tab>", "<C-d>", { desc = "Back tab" })
 -- Save with CTRL S.
 Map("n", "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+-- Save all with CTRL SHIFT S.
+Map("n", "<C-S-s>", "<cmd>wa<cr><esc>", { desc = "Save all files" })
+
 -- Select all.
 Map("n", "<C-a>", "ggVG", { desc = "Select all" })
 
@@ -69,14 +72,6 @@ Map("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Find help" })
 -- Open Neotree
 Map("n", "<C-F2>", ":Neotree toggle<CR>", { desc = "Toggle Neotree" })
 
--- Toggle Terminal
-Map("n", "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle Neotree" })
-Map("t", "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle Neotree" })
-
--- Diff view
-Map("n", "<leader>do", "<cmd>DiffviewOpen<CR>", { desc = "Git diff view open" })
-Map("n", "<leader>dc", "<cmd>DiffviewClose<CR>", { desc = "Git diff view close" })
-
 -- LSP
 Map("n", "<F12>", ":Lspsaga peek_definition<CR>", { desc = "Peek definition" })
 Map("n", "<C-F12>", ":lua vim.lsp.buf.implementation()<CR>", { desc = "Go to implementation" })
@@ -85,6 +80,7 @@ Map("n", "<C-S-F12>", ":Lspsaga finder<CR>", { desc = "Find references" })
 Map("n", "<leader>ca", ":Lspsaga code_action<CR>", { desc = "View code actions" })
 Map("n", "<leader>rn", ":Lspsaga rename<CR>", { desc = "Rename" })
 Map("n", "<leader>fm", ":Format<CR>", { desc = "Format" })
+Map("v", "<leader>fm", ":Format<CR>", { desc = "Format" })
 
 -- Code folding
 Map("n", "<C-m><C-p>", ":lua require('ufo').openAllFolds()<CR>")

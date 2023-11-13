@@ -100,7 +100,7 @@ null_ls.setup({
 			end,
 		}),
 		diagnostics.markdownlint,
-		code_actions.gitsigns,
-		code_actions.eslint_d,
+		--code_actions.gitsigns,
+		--code_actions.eslint_d,
 	},
 })

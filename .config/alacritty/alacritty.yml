@@ -1,0 +1,133 @@
+window:
+  dimensions:
+    columns: 80
+    lines: 40
+  padding:
+    x: 8
+    y: 8
+  dynamic_padding: false
+
+  # Valores para "decorations"
+  # - full: bordas e título.
+  # - none: sem bordas e sem título.
+  # - transparent: barra de título transparente.
+  # - buttonless: barra de título transparente sem botões.
+  decorations: full
+
+  # Valores para "startup_mode":
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #   - SimpleFullscreen (macOS apenas)
+  startup_mode: Windowed
+
+  # Opacidade de fundo.
+  opacity: 0.96
+
+  # Título do Alacritty
+  dynamic_title: false
+  title: Alacritty
+
+scrolling:
+  history: 0
+  multiplier: 3
+
+# Configuração de fonte
+font:
+  normal:
+    family: "CaskaydiaCove NFM"
+    style: Regular
+  bold:
+    family: "CaskaydiaCove NFM"
+    style: Bold
+  italic:
+    family: "CascadyaCove NFM"
+    style: "Italic"
+  size: 10.0
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+# Ativa a o realce de cores em textos negritos
+draw_bold_text_with_bright_colors: true
+
+custom_cursor_colors: true
+
+# Esquema de cores
+colors:
+  primary:
+    background: '0x0c0c0c'
+    foreground: '0xcccccc'
+  normal:
+    black:      '0x0c0c0c'
+    red:        '0xc50f1f'
+    green:      '0x13a10e'
+    yellow:     '0xc19c00'
+    blue:       '0x0037da'
+    magenta:    '0x881798'
+    cyan:       '0x3a96dd'
+    white:      '0xcccccc'
+  bright:
+    black:      '0x767676'
+    red:        '0xe74856'
+    green:      '0x16c60c'
+    yellow:     '0xf9f1a5'
+    blue:       '0x3b78ff'
+    magenta:    '0xb4009e'
+    cyan:       '0x61d6d6'
+    white:      '0xf2f2f2'
+
+key_bindings:
+  - { key: Q, mods: Control, action: Quit }
+  - { key: N, mods: Control, action: SpawnNewInstance }
+
+mouse:
+  # "double_click" e "triple_click" configura o tempo que o alacritty tem para
+  # aceitar múltiplos cliques.
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  # Cursor oculto enquanto digita
+  hide_when_typing: true
+
+  # Configuração de URL
+  hints:
+    Default:
+      - (macOS) open
+      - (Linux) xdg-open
+      - (Windows) explorer
+    launcher:
+      program: xdg-open
+      args: []
+
+# Configuração de atalhos do mouse.
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+
+  # "True" copia o texto selecionado para o clipboard principal
+  save_to_clipboard: false
+
+cursor:
+  # Valores para 'style':
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Block
+  unfocused_hollow: true
+
+# Recarregamento de configuração enquanto edita (requer reiniciar)
+live_config_reload: true
+
+shell:
+  program: "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+  args:
+    - -NoLogo
+    - -NoExit
+    - -Command
+    - Set-Location -LiteralPath '"C:\\Users\\lucas"'
