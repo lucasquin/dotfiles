@@ -97,3 +97,7 @@ Map("n", "<F5>", "<cmd>DapContinue<CR>", { desc = "Resume debug"})
 Map("n", "<F9>", "<cmd>DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint"})
 Map("n", "<F10>", "<cmd>DapStepOver<CR>", { desc = "Step over"})
 Map("n", "<F11>", "<cmd>DapStepInto<CR>", { desc = "Step into"})
+
+-- Toggle Terminal
+Map("n", "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle Neotree" })
+Map("t", "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle Neotree" })
