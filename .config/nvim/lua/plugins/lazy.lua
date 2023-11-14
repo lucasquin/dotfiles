@@ -92,6 +92,23 @@ local plugins = {
 	},
 	{ "nvimtools/none-ls.nvim" },
 
+	-- Debugger
+	{
+		lazy = true,
+		"mfussenegger/nvim-dap",
+		dependencies = {
+            { "rcarriga/nvim-dap-ui" },
+            { "theHamsta/nvim-dap-virtual-text" },
+			{ "mxsdev/nvim-dap-vscode-js" },
+			{ "jay-babu/mason-nvim-dap.nvim" },
+			{
+				"microsoft/vscode-js-debug",
+				version = "1.x",
+				build = "npm i && npm run compile vsDebugServerBundle && mv dist out",
+			},
+		},
+	},
+
 	-- Completion && Snippets
 	{
 		"hrsh7th/nvim-cmp",

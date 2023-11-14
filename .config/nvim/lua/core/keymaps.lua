@@ -32,6 +32,12 @@ Map("n", "<C-l>", "<C-w>l", { desc = "Right buffer" })
 Map("n", "<C-k>", "<C-w>k", { desc = "Up buffer" })
 Map("n", "<C-j>", "<C-w>j", { desc = "Down buffer" })
 
+-- Screen position
+Map("n", "<Up>", "<C-y>", { desc = "Screen up" })
+Map("n", "<Down>", "<C-e>", { desc = "Screen down" })
+Map("n", "<Left>", "zh", { desc = "Screen to left" })
+Map("n", "<Right>", "zl>", { desc = "Screen to right" })
+
 -- Shift tab default.
 Map("i", "<S-Tab>", "<C-d>", { desc = "Back tab" })
 
@@ -47,7 +53,7 @@ Map("n", "<C-a>", "ggVG", { desc = "Select all" })
 -- Disable search highlight
 Map("n", "<leader>nh", ":nohl<CR>", { desc = "No search highlight" })
 
--- Resize buffer
+-- Resize buffer<C-F2>
 Map("n", "<C-Up>", ":lua Resize_buffer('up')<CR>", { desc = "Resize buffer to up" })
 Map("n", "<C-Down>", ":lua Resize_buffer('down')<CR>", { desc = "Resize buffer to down" })
 Map("n", "<C-Left>", ":lua Resize_buffer('left')<CR>", { desc = "Resize buffer to left" })
@@ -85,3 +91,9 @@ Map("v", "<leader>fm", ":Format<CR>", { desc = "Format" })
 -- Code folding
 Map("n", "<C-m><C-p>", ":lua require('ufo').openAllFolds()<CR>")
 Map("n", "<A-m><A-p>", ":lua require('ufo').closeAllFolds()<CR>")
+
+-- Debugging
+Map("n", "<F5>", "<cmd>DapContinue<CR>", { desc = "Resume debug"})
+Map("n", "<F9>", "<cmd>DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint"})
+Map("n", "<F10>", "<cmd>DapStepOver<CR>", { desc = "Step over"})
+Map("n", "<F11>", "<cmd>DapStepInto<CR>", { desc = "Step into"})

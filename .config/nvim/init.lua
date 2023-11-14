@@ -20,6 +20,8 @@ require("plugins.config.template-string")
 require("plugins.config.url-open")
 require("plugins.config.ccc")
 
+require("plugins.config.dap")
+
 require("plugins.config.lsp")
 require("plugins.config.lspsaga")
 require("plugins.config.cmp")
