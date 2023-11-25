@@ -19,46 +19,8 @@
 	lineNumber = true
 
 [alias]
-	ad = !git add $@ && git st
-	ap = add -p
-	br = branch
-	ca = commit --amend
-	caa = commit --amend --reuse-message HEAD
-	cf = clean -df
-	cm = commit
-	cn = clean -dn
-	co = checkout
-	cp = cherry-pick
-	dc = diff -w --diff-algorithm=default --cached
-	dh = diff -w --histogram
-	dhc = diff -w --color-words --histogram
-	di = diff -w --diff-algorithm=default
-	dic = diff -w --color-words --diff-algorithm=default
-	dn = diff --name-only
-	dp = diff -w --patience
-	dpc = diff -w --color-words --patience
-	dt = difftool
-	ll = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-	lo = log --decorate --graph --name-status --oneline
-	po = pull origin master
-	pu = !git push origin $(git rev-parse --abbrev-ref HEAD)
-	pul = !git stash && git pull && git stash pop
-	re = remote
-	rh = reset --hard
-	rl = reflog
-	ri = rev-list --pretty --oneline
-	rt = revert
-	rv = remote -v
-	ra = remote-add
-	sm = submodule
-	st = status -sb
-	su = !git br --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD)
-	sd = !git br --set-upstream-to=delphinus/$(git rev-parse --abbrev-ref HEAD)
-	# \x23 means `#`
-	ds = !git st --porcelain | grep -v '^[AMD]' | grep -v '^\\x23' | perl -pe 's/^UU\\s+//'
-	wk = worktree
-	clean-local = !git branch --merged | egrep -v '(^\\*|master|main)' | xargs git branch -d
-	show-name = diff-tree --no-commit-id --name-only -r
+	c = commit
+	s = status -sb
 
 [url "git@github.com:"]
 	pushInsteadOf = "git://github.com/"
