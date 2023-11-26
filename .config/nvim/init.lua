@@ -1,7 +1,3 @@
-require("health")
-require("core.settings")
-require("core.autocmds")
-
 require("plugins.lazy")
 require("plugins.config.colorscheme")
 require("plugins.config.webdevicons")
@@ -19,13 +15,12 @@ require("plugins.config.nvim-ufo")
 require("plugins.config.template-string")
 require("plugins.config.url-open")
 require("plugins.config.ccc")
-
 require("plugins.config.dap")
-
 require("plugins.config.lsp")
 require("plugins.config.lspsaga")
 require("plugins.config.cmp")
 
-require("core.colorscheme")
-require("core.keymaps")
-
+require("settings")
+require("autocmds")
+require("colorscheme")
+require("keymaps")

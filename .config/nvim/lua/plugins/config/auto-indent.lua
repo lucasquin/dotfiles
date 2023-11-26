@@ -1,10 +1,7 @@
-local _, auto_indent = pcall(require, "auto-indent")
-if not _ then
-	return
-end
+local auto_indent = require("auto-indent")
 
 auto_indent.setup({
-	lightmode = true,
-	indentexpr = nil,
-	ignore_filetype = {},
+  lightmode = true,
+  indentexpr = nil,
+  ignore_filetype = {},
 })

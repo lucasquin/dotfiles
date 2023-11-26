@@ -3,23 +3,23 @@ vim.g.mapleader = "\\" -- Leader key
 
 -- Function for create maps
 function Map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 function Resize_buffer(direction)
-	if direction == "up" then
-		vim.cmd("resize -1")
-	elseif direction == "down" then
-		vim.cmd("resize +1")
-	elseif direction == "left" then
-		vim.cmd("vertical resize +1")
-	elseif direction == "right" then
-		vim.cmd("vertical resize -1")
-	end
+  if direction == "up" then
+    vim.cmd("resize -1")
+  elseif direction == "down" then
+    vim.cmd("resize +1")
+  elseif direction == "left" then
+    vim.cmd("vertical resize +1")
+  elseif direction == "right" then
+    vim.cmd("vertical resize -1")
+  end
 end
 
 -- Paste
@@ -93,10 +93,10 @@ Map("n", "<C-m><C-p>", ":lua require('ufo').openAllFolds()<CR>")
 Map("n", "<A-m><A-p>", ":lua require('ufo').closeAllFolds()<CR>")
 
 -- Debugging
-Map("n", "<F5>", "<cmd>DapContinue<CR>", { desc = "Resume debug"})
-Map("n", "<F9>", "<cmd>DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint"})
-Map("n", "<F10>", "<cmd>DapStepOver<CR>", { desc = "Step over"})
-Map("n", "<F11>", "<cmd>DapStepInto<CR>", { desc = "Step into"})
+Map("n", "<F5>", "<cmd>DapContinue<CR>", { desc = "Resume debug" })
+Map("n", "<F9>", "<cmd>DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint" })
+Map("n", "<F10>", "<cmd>DapStepOver<CR>", { desc = "Step over" })
+Map("n", "<F11>", "<cmd>DapStepInto<CR>", { desc = "Step into" })
 
 -- Toggle Terminal
 Map("n", "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle Neotree" })

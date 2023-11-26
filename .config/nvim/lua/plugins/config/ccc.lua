@@ -1,14 +1,8 @@
-local _, ccc = pcall(require, "ccc")
-if not _ then
-	return
-end
-
-local mapping = ccc.mapping
+local ccc = require("ccc")
 
 ccc.setup({
-	highlighter = {
-		auto_enable = true,
-		lsp = true,
-	},
+  highlighter = {
+    auto_enable = true,
+    lsp = true,
+  },
 })
-

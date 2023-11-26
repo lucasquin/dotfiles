@@ -1,32 +1,29 @@
-local _, devicon = pcall(require, "nvim-web-devicons")
-if not _ then
-    return
-end
+local devicon = require("nvim-web-devicons")
 
 devicon.setup({
-    override = {
-        zsh = {
-            icon = "",
-            color = "#428850",
-            cterm_color = "65",
-            name = "Zsh",
-        },
+  override = {
+    zsh = {
+      icon = "",
+      color = "#428850",
+      cterm_color = "65",
+      name = "Zsh",
     },
-    color_icons = true,
-    default = true,
-    strict = true,
-    override_by_filename = {
-        [".gitignore"] = {
-            icon = "",
-            color = "#f1502f",
-            name = "Gitignore",
-        },
+  },
+  color_icons = true,
+  default = true,
+  strict = true,
+  override_by_filename = {
+    [".gitignore"] = {
+      icon = "",
+      color = "#f1502f",
+      name = "Gitignore",
     },
-    override_by_extension = {
-        ["log"] = {
-            icon = "",
-            color = "#81e043",
-            name = "Log",
-        },
+  },
+  override_by_extension = {
+    ["log"] = {
+      icon = "",
+      color = "#81e043",
+      name = "Log",
     },
+  },
 })

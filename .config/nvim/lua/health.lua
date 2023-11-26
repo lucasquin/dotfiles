@@ -1,39 +1,25 @@
 local M = {}
 
-local start = vim.health.start or vim.health.report_start
-local ok = vim.health.ok or vim.health.report_ok
-local warn = vim.health.warn or vim.health.report_warn
-local error = vim.health.error or vim.health.report_error
+local health = vim.health or require("health")
 
-function M.check()
-	start("AsteroidVim")
+local check_executable = function(bin, name, advice)
+  if vim.fn.executable(bin) == 0 then
+    health.error(string.format("Please install %s, %s", name, advice))
+  else
+    health.ok(string.format("%s is installed", name))
+  end
+end
 
-	if vim.fn.has("nvim-0.9.0") == 1 then
-		ok("Using Neovim >= 0.9.0")
-	else
-		error("Neovim >= 0.9.0 is required")
-	end
+M.check = function()
+  health.start("Checking nvim configuration requirements")
 
-	for _, cmd in ipairs({ "git", "rg", "node" }) do
-		local name = type(cmd) == "string" and cmd or vim.inspect(cmd)
-		local commands = type(cmd) == "string" and { cmd } or cmd
-		---
-		---@cast commands string[]
-		local found = false
+  if not vim.fn.has("nvim-0.9.0") == 1 then
+    health.error("Neovim >= 0.9.0 is required")
+  end
 
-		for _, c in ipairs(commands) do
-			if vim.fn.executable(c) == 1 then
-				name = c
-				found = true
-			end
-		end
-
-		if found then
-			ok(("`%s` is installed"):format(name))
-		else
-			warn(("`%s` is not installed"):format(name))
-		end
-	end
+  check_executable("npm", "npm", "https://nodejs.org/en/download/")
+  check_executable("git", "git", "https://git-scm.com/downloads")
+  check_executable("rg", "ripgrep", "https://github.com/BurntSushi/ripgrep#installation")
 end
 
 return M

@@ -1,26 +1,23 @@
-local _, lspsaga = pcall(require, "lspsaga")
-if not _ then
-    return
-end
+local lspsaga = require("lspsaga")
 
 lspsaga.setup({
-    scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
-    definition = {
-        keys = {
-            edit = "<CR>",
-            quit = { "q", "<ESC>" },
-        },
+  scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
+  definition = {
+    keys = {
+      edit = "<CR>",
+      quit = { "q", "<ESC>" },
     },
-    finder = {
-        keys = {
-            edit = "<CR>",
-            quit = { "q", "<ESC>" },
-        },
+  },
+  finder = {
+    keys = {
+      edit = "<CR>",
+      quit = { "q", "<ESC>" },
     },
-    ui = {
-        sign = false,
-    },
-    symbol_in_winbar = {
-        enable = false
-    }
+  },
+  ui = {
+    sign = false,
+  },
+  symbol_in_winbar = {
+    enable = false,
+  },
 })

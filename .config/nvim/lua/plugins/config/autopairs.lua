@@ -1,8 +1,5 @@
-local _, autopairs = pcall(require, "nvim-autopairs")
-if not _ then
-    return
-end
+local autopairs = require("nvim-autopairs")
 
 autopairs.setup({
-    disable_filetype = { "TelescopePrompt", "neo-tree" },
+  disable_filetype = { "TelescopePrompt", "neo-tree" },
 })
