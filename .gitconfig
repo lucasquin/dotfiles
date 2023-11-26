@@ -105,8 +105,7 @@
 	cmd = nvim -d -c '4wincmd w | wincmd J | nnoremap q <Cmd>qa<CR>' $LOCAL $BASE $REMOTE $MERGED
 
 [commit]
-	gpgsign = true
-	template = ~/Repository/dotfiles/commit-template.txt
+	template = ~/repository/dotfiles/commit-template.txt
 
 [init]
 	defaultBranch = main
