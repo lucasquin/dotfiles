@@ -19,7 +19,7 @@
 # +-------> Tipos: chore, docs, feat, fix, refactor, style, or test.
 # ```
 #
-# Mais Examplos:
+# Mais Exemplos:
 #
 # - `feat`: (nova feature para o usuário, NÂO uma nova feature de script)
 # - `fix`: (correção de bug para o usuário, NÂO uma correção de bug em script)
