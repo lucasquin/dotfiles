@@ -79,3 +79,4 @@ fi
 
 export XKB_DEFAULT_LAYOUT=us
 export XKB_DEFAULT_VARIANT=intl
+export PATH=$PATH:~/Applications

@@ -22,6 +22,16 @@ function CriarSymlink {
   ln -s ${dotfilesDir}/${1} ${destino}
 }
 
+# Copia os arquivos para a pasta .config
+if [ "$(ls -A .config)" ]; then
+  cp -r "${dotfilesDir}/.config/"* "${HOME}/.config/"
+fi
+
+# Cria a pasta de Applications para appimage, se não existir
+if [ ! -d "${HOME}/Applications/" ]; then
+  mkdir "${HOME}/Applications/"
+fi
+
 CriarSymlink .bashrc
 CriarSymlink .bash_aliases
 CriarSymlink .gitconfig
