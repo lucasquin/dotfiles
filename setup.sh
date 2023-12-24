@@ -22,9 +22,18 @@ function CriarSymlink {
   ln -s ${dotfilesDir}/${1} ${destino}
 }
 
-# Copia os arquivos para a pasta .config
-if [ "$(ls -A .config)" ]; then
-  cp -r "${dotfilesDir}/.config/"* "${HOME}/.config/"
+if [ -d "${dotfilesDir}/.config" ]; then
+  cd "${dotfilesDir}/.config"
+  for file in *; do
+    if [ -e "${HOME}/.config/${file}" ]; then
+      echo "O link simbólico ${HOME}/.config/${file} já existe."
+    else
+      ln -s "${dotfilesDir}/.config/${file}" "${HOME}/.config/"
+      echo "Link simbólico criado para ${file} em ${HOME}/.config/"
+    fi
+  done
+else
+  echo "A pasta .config não foi encontrada em ${dotfilesDir}."
 fi
 
 # Cria a pasta de Applications para appimage, se não existir
