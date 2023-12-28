@@ -37,8 +37,8 @@ else
 fi
 
 # Cria a pasta de Applications para appimage, se não existir
-if [ ! -d "${HOME}/Applications/" ]; then
-  mkdir "${HOME}/Applications/"
+if [ ! -d "${HOME}/applications/" ]; then
+  mkdir "${HOME}/applications/"
 fi
 
 CriarSymlink .bashrc
