@@ -1,26 +1,31 @@
-require("plugins.lazy")
-require("plugins.config.colorscheme")
-require("plugins.config.webdevicons")
-require("plugins.config.lualine")
-require("plugins.config.neotree")
-require("plugins.config.treesitter")
-require("plugins.config.gitsigns")
-require("plugins.config.telescope")
-require("plugins.config.autopairs")
-require("plugins.config.auto-indent")
-require("plugins.config.autotag")
-require("plugins.config.local-highlight")
-require("plugins.config.indent-blankline")
-require("plugins.config.nvim-ufo")
-require("plugins.config.template-string")
-require("plugins.config.url-open")
-require("plugins.config.ccc")
-require("plugins.config.dap")
-require("plugins.config.lsp")
-require("plugins.config.lspsaga")
-require("plugins.config.cmp")
+require "lucasquin.start"
+require "lucasquin.settings"
+require "lucasquin.keymaps"
+require "lucasquin.autocmds"
 
-require("settings")
-require("autocmds")
-require("colorscheme")
-require("keymaps")
+spec "lucasquin.colorscheme"
+spec "lucasquin.devicons"
+spec "lucasquin.treesitter"
+spec "lucasquin.lsp"
+spec "lucasquin.none-ls"
+spec "lucasquin.lualine"
+spec "lucasquin.autopairs"
+spec "lucasquin.autotag"
+spec "lucasquin.ccc"
+spec "lucasquin.neotree"
+spec "lucasquin.gitsigns"
+spec "lucasquin.telescope"
+spec "lucasquin.auto-indent"
+spec "lucasquin.local-highlight"
+spec "lucasquin.indent-blankline"
+spec "lucasquin.nvim-ufo"
+spec "lucasquin.template-string"
+spec "lucasquin.nerdcommenter"
+spec "lucasquin.url-open"
+spec "lucasquin.lspsaga"
+spec "lucasquin.cmp"
+spec "lucasquin.statuscol"
+spec "lucasquin.moveline"
+spec "lucasquin.tabular"
+
+require "lucasquin.lazy"
