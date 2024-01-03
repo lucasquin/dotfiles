@@ -54,6 +54,8 @@ v.numberwidth = 4
 v.sidescrolloff = 8
 
 vim.g.icons_enabled = true
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
 vim.o.fillchars = [[vert:█,eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.scriptencoding = "utf-8"
 vim.termeconfing = "utf-8"
