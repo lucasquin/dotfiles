@@ -1,21 +1,29 @@
 local M = {
-  "Mofiqul/dracula.nvim",
+  "folke/tokyonight.nvim",
 }
 
 M.config = function()
-  require("dracula").setup {
-    show_end_of_buffer = false,
-    transparent_bg = true,
-    lualine_bg_color = nil,
-    italic_comment = true,
-    overrides = {
-      NeoTreeNormal = { fg = "#F8F8F2", bg = "#191A21" },
-      NeoTreeNormalNC = { fg = "#F8F8F2", bg = "#191A21" },
-      NeoTreeDimText = { fg = "#F8F8F2" },
-      TelescopeNormal = { bg = "#191A21", fg = "#F2F2F2" },
+  require("tokyonight").setup {
+    style = "storm",
+    light_style = "day",
+    transparent = true,
+    terminal_colors = true,
+    styles = {
+      comments = { italic = true },
+      keywords = { italic = true },
+      functions = {},
+      variables = {},
+      sidebars = "dark",
+      floats = "transparent",
     },
+    sidebars = { "qf", "help" },
+    day_brightness = 0.3,
+    hide_inactive_statusline = true,
+    dim_inactive = false,
+    lualine_bold = true,
   }
-  vim.cmd.colorscheme "dracula"
+
+  vim.cmd.colorscheme "tokyonight"
 end
 
 return M
