@@ -71,3 +71,11 @@ map("n", "<leader>fm", "<cmd>lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>"
 -- Code folding
 map("n", "<C-m><C-p>", "<cmd>lua require('ufo').openAllFolds()<CR>")
 map("n", "<A-m><A-p>", "<cmd>lua require('ufo').closeAllFolds()<CR>")
+
+-- DAP
+map("n", "<F5>", "<cmd>lua require('dap').continue()<CR>", opts)
+map("n", "<S-F5>", "<cmd>lua require('dap').terminate()<CR>", opts)
+map("n", "<F9>", "<cmd>lua require('dap').toggle_breakpoint()<CR>", opts)
+map("n", "<F10>", "<cmd>lua require('dap').step_over()<CR>", opts)
+map("n", "<F11>", "<cmd>lua require('dap').step_into()<CR>", opts)
+map("n", "<S-F11>", "<cmd>lua require('dap').step_out()<CR>", opts)
