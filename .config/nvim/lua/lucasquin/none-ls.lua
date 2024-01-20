@@ -4,17 +4,36 @@ local M = {
 
 M.config = function()
   local null_ls = require "null-ls"
-  local formatting = null_ls.builtins.formatting
+  local f = null_ls.builtins.formatting
+  local d = null_ls.builtins.diagnostics
+  local c = null_ls.builtins.code_actions
 
   null_ls.setup {
     sources = {
-      formatting.stylua,
-      formatting.prettier,
-      formatting.prettier.with {
+      -- lua
+      f.stylua,
+
+      -- git
+      c.gitsigns,
+
+      -- javascript world
+      f.prettier.with {
         extra_filetypes = { "toml" },
       },
-      null_ls.builtins.diagnostics.eslint,
-      null_ls.builtins.completion.spell,
+      d.eslint,
+
+      -- shell
+      f.shfmt,
+      d.shellcheck,
+      c.shellcheck,
+
+      -- golang
+      f.gofumpt,
+      f.goimports,
+      f.goimports_reviser,
+      f.golines,
+      c.gomodifytags,
+      c.impl,
     },
   }
 end

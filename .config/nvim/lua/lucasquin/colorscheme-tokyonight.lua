@@ -6,7 +6,7 @@ M.config = function()
   require("tokyonight").setup {
     style = "storm",
     light_style = "day",
-    transparent = true,
+    transparent = false,
     terminal_colors = true,
     styles = {
       comments = { italic = true },
@@ -23,7 +23,6 @@ M.config = function()
     lualine_bold = true,
   }
 
-  vim.cmd.colorscheme "tokyonight"
 end
 
 return M
