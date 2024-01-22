@@ -18,7 +18,7 @@ M.config = function()
 
       -- javascript world
       f.prettier.with {
-        extra_filetypes = { "toml" },
+        extra_filetypes = { "toml", "svelte" },
       },
       d.eslint,
 
