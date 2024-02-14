@@ -61,8 +61,20 @@ map("n", "<S-F12>", "<cmd>Lspsaga hover_doc<CR>", opts)
 map("n", "<C-S-F12>", "<cmd>Lspsaga finder<CR>", opts)
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-map("n", "<C-t>", "<cmd>Lspsaga term_toggle<CR>", opts)
-map("t", "<C-t>", "<cmd>Lspsaga term_toggle<CR>", opts)
+
+-- Toggleterm
+function _G.set_terminal_keymaps()
+  local optsTerm = { buffer = 0 }
+  map("t", "<esc>", [[<C-\><C-n>]], optsTerm)
+  map("t", "jk", [[<C-\><C-n>]], optsTerm)
+  map("t", "<C-h>", [[<Cmd>wincmd h<CR>]], optsTerm)
+  map("t", "<C-j>", [[<Cmd>wincmd j<CR>]], optsTerm)
+  map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], optsTerm)
+  map("t", "<C-l>", [[<Cmd>wincmd l<CR>]], optsTerm)
+  map("t", "<C-w>", [[<C-\><C-n><C-w>]], optsTerm)
+end
+
+vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
 -- Native LSP
 map("n", "<C-F12>", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)

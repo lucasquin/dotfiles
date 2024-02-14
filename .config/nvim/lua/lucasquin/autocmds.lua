@@ -7,14 +7,13 @@ vim.cmd [[
   ]]
 
 function disable_diagnostic()
-  local file = vim.bo.filetype
-  return file == "svelte" or file == "neo-tree"
+  return vim.bo.filetype == "svelte"
 end
 
 vim.cmd [[
     augroup diagnostics
     autocmd!
-    autocmd BufEnter * lua if disable_diagnostic() then vim.diagnostic.disable() end
-    autocmd BufEnter * lua if not disable_diagnostic() then vim.diagnostic.enable() end
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * lua if disable_diagnostic() then vim.diagnostic.disable() end
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave * lua if not disable_diagnostic() then vim.diagnostic.enable() end
     augroup END
   ]]

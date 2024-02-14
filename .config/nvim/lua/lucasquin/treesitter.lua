@@ -29,7 +29,7 @@ M.config = function()
           return true
         end
       end,
-      additional_vim_regex_highlighting = false,
+      additional_vim_regex_highlighting = true,
     },
     indent = { enable = true },
     autotag = { enable = true },

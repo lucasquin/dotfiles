@@ -4,9 +4,9 @@ local M = {
 
 M.config = function()
   require("dracula").setup {
-    show_end_of_buffer = true,
-    transparent_bg = false,
-    lualine_bg_color = nil,
+    show_end_of_buffer = false,
+    transparent_bg = true,
+    lualine_bg_color = true,
     italic_comment = true,
   }
   vim.cmd.colorscheme "dracula"
