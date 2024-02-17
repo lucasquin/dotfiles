@@ -2,110 +2,41 @@ local M = {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    {
-      "hrsh7th/cmp-nvim-lsp",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-emoji",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-buffer",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-path",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-cmdline",
-      event = "InsertEnter",
-    },
-    {
-      "saadparwaiz1/cmp_luasnip",
-      event = "InsertEnter",
-    },
+    "onsails/lspkind-nvim",
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     {
       "L3MON4D3/LuaSnip",
-      event = "InsertEnter",
       dependencies = {
         "rafamadriz/friendly-snippets",
       },
-    },
-    {
-      "hrsh7th/cmp-nvim-lua",
-    },
-    {
-      "onsails/lspkind.nvim",
-    },
-    {
-      "hrsh7th/cmp-nvim-lsp-signature-help",
     },
   },
 }
 
 M.config = function()
+  local luasnip = require 'luasnip'
   local cmp = require "cmp"
-  local luasnip = require "luasnip"
-  require("luasnip/loaders/from_vscode").lazy_load()
-  require("luasnip").filetype_extend("typescriptreact", { "html" })
-
-  local border_opts = {
-    border = "single",
-    winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
-  }
-
-  local defaults = require "cmp.config.default" ()
+  local lspkind = require("lspkind")
+  local tailwind_formatter = require("tailwindcss-colorizer-cmp").formatter
 
   cmp.setup {
-    active = true,
-    on_config_done = nil,
-    completion = {
-      keyword_length = 1,
-    },
-    experimental = {
-      ghost_text = false,
-      native_menu = false,
-    },
-    formatting = {
-      format = require("lspkind").cmp_format {
-        mode = "symbol_text",
-        maxwidth = 50,
-        ellipsis_char = "...",
-      },
-      duplicates = {
-        buffer = 1,
-        path = 1,
-        nvim_lsp = 0,
-        luasnip = 1,
-      },
-      duplicates_default = 0,
-    },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
       end,
     },
-    window = {
-      completion = cmp.config.window.bordered(border_opts),
-      documentation = cmp.config.window.bordered(border_opts),
-    },
-    sources = {
-      { name = "nvim_lsp" },
-      { name = "nvim_lsp_signature_help" },
-      { name = "luasnip" },
-      { name = "path" },
-    },
-    {
-      { name = "buffer" },
-    },
-    mapping = {
-      ["<CR>"] = cmp.mapping.confirm {
+    mapping = cmp.mapping.preset.insert({
+      ['<CR>'] = cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
       },
-      ["<Tab>"] = function(fallback)
+      ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
@@ -113,8 +44,8 @@ M.config = function()
         else
           fallback()
         end
-      end,
-      ["<S-Tab>"] = function(fallback)
+      end, { 'i', 's' }),
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         elseif luasnip.jumpable(-1) then
@@ -122,10 +53,25 @@ M.config = function()
         else
           fallback()
         end
-      end,
+      end, { 'i', 's' }),
+    }),
+    sources = cmp.config.sources({
+      { name = "luasnip" },
+      { name = "nvim_lsp" },
+      { name = "buffer",                 keyword_length = 4, max_item_count = 5 },
+      { name = "path" },
+      { name = "nvim_lua" },
+      { name = "nvim_lsp_signature_help" },
+    }),
+    formatting = {
+      fields = { cmp.ItemField.Menu, cmp.ItemField.Abbr, cmp.ItemField.Kind },
+      format = lspkind.cmp_format({
+        with_text = true,
+        before = tailwind_formatter,
+      }),
     },
-    sorting = defaults.sorting,
   }
 end
+
 
 return M
