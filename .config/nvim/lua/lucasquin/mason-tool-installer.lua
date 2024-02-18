@@ -32,7 +32,7 @@ M.config = function()
       -- Linters
       "golangci-lint",
       "markdownlint",
-      "eslint_d",
+      "eslint",
       "jsonlint",
 
       -- Formatters

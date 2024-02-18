@@ -7,7 +7,9 @@ local M = {
 }
 
 M.config = function()
-  require("lspsaga").setup {
+  local lspsaga = require "lspsaga"
+
+  lspsaga.setup {
     scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
     definition = {
       keys = {
