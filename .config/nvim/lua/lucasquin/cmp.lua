@@ -25,6 +25,9 @@ M.config = function()
   local lspkind = require("lspkind")
   local tailwind_formatter = require("tailwindcss-colorizer-cmp").formatter
 
+  require("luasnip/loaders/from_vscode").lazy_load()
+  luasnip.filetype_extend("typescriptreact", { "html" })
+
   cmp.setup {
     snippet = {
       expand = function(args)
@@ -58,7 +61,7 @@ M.config = function()
     sources = cmp.config.sources({
       { name = "luasnip" },
       { name = "nvim_lsp" },
-      { name = "buffer",                 keyword_length = 4, max_item_count = 5 },
+      { name = "buffer",                 keyword_length = 3, max_item_count = 5 },
       { name = "path" },
       { name = "nvim_lua" },
       { name = "nvim_lsp_signature_help" },

@@ -20,7 +20,10 @@ M.config = function()
       "yamlls",
       "dockerls",
       "docker_compose_language_service",
-      "ltex"
+      "ltex",
+      "tailwindcss",
+      "vimls",
+      "tsserver"
     },
     automatic_installation = false,
   }

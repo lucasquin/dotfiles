@@ -1,20 +1,12 @@
 local M = {
   "neovim/nvim-lspconfig",
-  dependencies = {
-    {
-      "pmizio/typescript-tools.nvim",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-      }
-    }
-  }
 }
 
 M.config = function()
   local lspconfig = require "lspconfig"
 
   local servers = { "cmake", "cssmodules_ls", "clangd", "gopls", "templ", "bashls", "marksman", "yamlls", "dockerls",
-    "docker_compose_language_service" }
+    "docker_compose_language_service", "tailwindcss", "vimls", "tsserver" }
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {}
   end
@@ -29,8 +21,6 @@ M.config = function()
     }
   end
 
-  require("typescript-tools").setup {}
-
   lspconfig.svelte.setup({
     root_dir = lspconfig.util.root_pattern("svelte.config.cjs", "svelte.config.js"),
   })
@@ -39,6 +29,7 @@ M.config = function()
     settings = {
       ltex = {
         language = { "en-US" },
+        enabled = { "bibtex", "gitcommit", "markdown", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context" }
       },
     },
   }

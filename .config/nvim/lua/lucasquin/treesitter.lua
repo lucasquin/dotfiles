@@ -3,18 +3,12 @@ local M = {
   event = { "BufReadPost", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-    {
-      "windwp/nvim-ts-autotag",
-      event = "VeryLazy",
-    },
-    {
-      "windwp/nvim-autopairs",
-      event = "InsertEnter",
-    },
-  },
+    "JoosepAlviste/nvim-ts-context-commentstring"
+  }
 }
 
 M.config = function()
+  vim.g.skip_ts_context_commentstring_module = true
   require("nvim-treesitter.configs").setup {
     ensure_installed = { "lua", "markdown", "markdown_inline" },
     ignore_install = { "" },
@@ -31,9 +25,7 @@ M.config = function()
       end,
       additional_vim_regex_highlighting = true,
     },
-    indent = { enable = true },
-    autotag = { enable = true },
-    autopairs = { enable = true },
+    indent = { enable = false },
   }
 end
 

@@ -4,37 +4,42 @@ require "lucasquin.keymaps"
 require "lucasquin.autocmds"
 
 spec "lucasquin.neotree"
+
+-- Colorscheme and syntax highlight specs
 spec "lucasquin.colorscheme-tokyonight"
 spec "lucasquin.colorscheme-dracula"
 spec "lucasquin.colorscheme-vscode"
-spec "lucasquin.devicons"
 spec "lucasquin.treesitter"
 
+-- LSP specs
 spec "lucasquin.mason"
 spec "lucasquin.mason-lspconfig"
 spec "lucasquin.nvim-lsp"
 spec "lucasquin.cmp"
 spec "lucasquin.lspsaga"
 
+-- UI specs
+spec "lucasquin.devicons"
 spec "lucasquin.lualine"
+spec "lucasquin.gitsigns"
+spec "lucasquin.modicator"
+spec "lucasquin.ccc"
+spec "lucasquin.statuscol"
+spec "lucasquin.nvim-ufo"
+spec "lucasquin.indent-blankline"
+
+-- Editor specs
 spec "lucasquin.autopairs"
 spec "lucasquin.autotag"
-spec "lucasquin.ccc"
-spec "lucasquin.gitsigns"
 spec "lucasquin.telescope"
 spec "lucasquin.auto-indent"
 spec "lucasquin.local-highlight"
-spec "lucasquin.indent-blankline"
-spec "lucasquin.nvim-ufo"
 spec "lucasquin.template-string"
-spec "lucasquin.nerdcommenter"
-
-spec "lucasquin.statuscol"
+spec "lucasquin.comment"
 spec "lucasquin.moveline"
-spec "lucasquin.gitsigns"
 spec "lucasquin.tabular"
 spec "lucasquin.dap"
-spec "lucasquin.modicator"
 spec "lucasquin.toggleterm"
+spec "lucasquin.copilot"
 
 require "lucasquin.lazy"
