@@ -3,8 +3,8 @@ local M = {
   event = { "BufReadPost", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-    "JoosepAlviste/nvim-ts-context-commentstring"
-  }
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
 }
 
 M.config = function()

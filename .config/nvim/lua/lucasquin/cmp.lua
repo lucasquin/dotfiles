@@ -20,9 +20,9 @@ local M = {
 }
 
 M.config = function()
-  local luasnip = require 'luasnip'
+  local luasnip = require "luasnip"
   local cmp = require "cmp"
-  local lspkind = require("lspkind")
+  local lspkind = require "lspkind"
   local tailwind_formatter = require("tailwindcss-colorizer-cmp").formatter
 
   require("luasnip/loaders/from_vscode").lazy_load()
@@ -34,12 +34,12 @@ M.config = function()
         luasnip.lsp_expand(args.body)
       end,
     },
-    mapping = cmp.mapping.preset.insert({
-      ['<CR>'] = cmp.mapping.confirm {
+    mapping = cmp.mapping.preset.insert {
+      ["<CR>"] = cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
       },
-      ['<Tab>'] = cmp.mapping(function(fallback)
+      ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expand_or_jumpable() then
@@ -47,8 +47,8 @@ M.config = function()
         else
           fallback()
         end
-      end, { 'i', 's' }),
-      ['<S-Tab>'] = cmp.mapping(function(fallback)
+      end, { "i", "s" }),
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         elseif luasnip.jumpable(-1) then
@@ -56,25 +56,24 @@ M.config = function()
         else
           fallback()
         end
-      end, { 'i', 's' }),
-    }),
-    sources = cmp.config.sources({
+      end, { "i", "s" }),
+    },
+    sources = cmp.config.sources {
       { name = "luasnip" },
       { name = "nvim_lsp" },
-      { name = "buffer",                 keyword_length = 3, max_item_count = 5 },
+      { name = "buffer", keyword_length = 3, max_item_count = 5 },
       { name = "path" },
       { name = "nvim_lua" },
       { name = "nvim_lsp_signature_help" },
-    }),
+    },
     formatting = {
       fields = { cmp.ItemField.Menu, cmp.ItemField.Abbr, cmp.ItemField.Kind },
-      format = lspkind.cmp_format({
+      format = lspkind.cmp_format {
         with_text = true,
         before = tailwind_formatter,
-      }),
+      },
     },
   }
 end
-
 
 return M

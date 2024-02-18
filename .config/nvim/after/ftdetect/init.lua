@@ -14,4 +14,3 @@ vim.filetype.add {
     ["*.MOD"] = "gomod",
   },
 }
-

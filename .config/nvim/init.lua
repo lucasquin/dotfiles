@@ -13,10 +13,12 @@ spec "lucasquin.treesitter"
 
 -- LSP specs
 spec "lucasquin.mason"
-spec "lucasquin.mason-lspconfig"
+spec "lucasquin.mason-tool-installer"
 spec "lucasquin.nvim-lsp"
 spec "lucasquin.cmp"
 spec "lucasquin.lspsaga"
+spec "lucasquin.nvim-lint"
+spec "lucasquin.conform"
 
 -- UI specs
 spec "lucasquin.devicons"
@@ -40,6 +42,5 @@ spec "lucasquin.moveline"
 spec "lucasquin.tabular"
 spec "lucasquin.dap"
 spec "lucasquin.toggleterm"
-spec "lucasquin.copilot"
 
 require "lucasquin.lazy"

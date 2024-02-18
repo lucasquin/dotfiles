@@ -5,4 +5,3 @@ vim.cmd [[
     autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
     augroup END
   ]]
-

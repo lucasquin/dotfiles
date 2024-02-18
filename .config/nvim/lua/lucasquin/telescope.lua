@@ -58,34 +58,34 @@ M.config = function()
   end
 
   telescope
-      .register_extension({
-        setup = function()
-          builtin.live_grep_workspace = function(opts)
-            opts.cwd = get_workspace_folder()
-            builtin.live_grep(opts)
-          end
+    .register_extension({
+      setup = function()
+        builtin.live_grep_workspace = function(opts)
+          opts.cwd = get_workspace_folder()
+          builtin.live_grep(opts)
+        end
 
-          builtin.find_files_workspace = function(opts)
-            opts.cwd = get_workspace_folder()
-            builtin.find_files(opts)
-          end
+        builtin.find_files_workspace = function(opts)
+          opts.cwd = get_workspace_folder()
+          builtin.find_files(opts)
+        end
 
-          builtin.grep_string_workspace = function(opts)
-            opts.cwd = get_workspace_folder()
-            builtin.grep_string(opts)
-          end
-        end,
-      })
-      .setup {
-        mappings = {
-          ["<CR>"] = {
-            keepinsert = true,
-            action = function(selection)
-              telescope.extensions.file_browser.file_browser { cwb = selection.path }
-            end,
-          },
+        builtin.grep_string_workspace = function(opts)
+          opts.cwd = get_workspace_folder()
+          builtin.grep_string(opts)
+        end
+      end,
+    })
+    .setup {
+      mappings = {
+        ["<CR>"] = {
+          keepinsert = true,
+          action = function(selection)
+            telescope.extensions.file_browser.file_browser { cwb = selection.path }
+          end,
         },
-      }
+      },
+    }
 end
 
 return M

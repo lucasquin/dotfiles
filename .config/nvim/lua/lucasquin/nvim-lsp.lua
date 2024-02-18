@@ -5,8 +5,21 @@ local M = {
 M.config = function()
   local lspconfig = require "lspconfig"
 
-  local servers = { "cmake", "cssmodules_ls", "clangd", "gopls", "templ", "bashls", "marksman", "yamlls", "dockerls",
-    "docker_compose_language_service", "tailwindcss", "vimls", "tsserver" }
+  local servers = {
+    "cmake",
+    "cssmodules_ls",
+    "clangd",
+    "gopls",
+    "templ",
+    "bashls",
+    "marksman",
+    "yamlls",
+    "dockerls",
+    "docker_compose_language_service",
+    "tailwindcss",
+    "vimls",
+    "tsserver",
+  }
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {}
   end
@@ -21,15 +34,27 @@ M.config = function()
     }
   end
 
-  lspconfig.svelte.setup({
+  lspconfig.svelte.setup {
     root_dir = lspconfig.util.root_pattern("svelte.config.cjs", "svelte.config.js"),
-  })
+  }
 
   lspconfig.ltex.setup {
     settings = {
       ltex = {
         language = { "en-US" },
-        enabled = { "bibtex", "gitcommit", "markdown", "org", "tex", "restructuredtext", "rsweave", "latex", "quarto", "rmd", "context" }
+        enabled = {
+          "bibtex",
+          "gitcommit",
+          "markdown",
+          "org",
+          "tex",
+          "restructuredtext",
+          "rsweave",
+          "latex",
+          "quarto",
+          "rmd",
+          "context",
+        },
       },
     },
   }
@@ -37,25 +62,25 @@ M.config = function()
   lspconfig.lua_ls.setup {
     on_init = function(client)
       local path = client.workspace_folders[1].name
-      if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-        client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+      if not vim.loop.fs_stat(path .. "/.luarc.json") and not vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+        client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
           Lua = {
             runtime = {
-              version = 'LuaJIT'
+              version = "LuaJIT",
             },
             workspace = {
               checkThirdParty = false,
               library = {
-                vim.env.VIMRUNTIME
-              }
-            }
-          }
+                vim.env.VIMRUNTIME,
+              },
+            },
+          },
         })
 
         client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
       end
       return true
-    end
+    end,
   }
 end
 

@@ -78,7 +78,12 @@ vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
 -- Native LSP
 map("n", "<C-F12>", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-map("n", "<leader>fm", "<cmd>lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>")
+
+map(
+  { "n", "v" },
+  "<leader>fm",
+  "<cmd>lua require('conform').format({ lsp_fallback = true, async = false, timeout_ms = 500 })<CR>"
+)
 
 -- Code folding
 map("n", "<C-m><C-p>", "<cmd>lua require('ufo').openAllFolds()<CR>")

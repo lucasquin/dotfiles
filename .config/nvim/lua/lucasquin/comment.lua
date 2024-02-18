@@ -3,7 +3,7 @@ local M = {
 }
 
 M.config = function()
-  require('Comment').setup {}
+  require("Comment").setup {}
 end
 
 return M
