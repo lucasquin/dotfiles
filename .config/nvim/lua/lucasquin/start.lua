@@ -1,5 +1,5 @@
 PLUGIN_SPEC = {}
 
-function spec(plugin)
+function Spec(plugin)
   table.insert(PLUGIN_SPEC, { import = plugin })
 end

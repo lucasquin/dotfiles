@@ -43,6 +43,7 @@ M.config = function()
 
       -- Debug Adapters
       "delve",
+      "go-debug-adapter",
     },
     auto_update = false,
     run_on_start = true,
