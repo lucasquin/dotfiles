@@ -38,8 +38,8 @@ M.config = function()
       -- Formatters
       "prettierd",
       "stylua",
+      "gofumpt",
       "goimports",
-      "golines",
 
       -- Debug Adapters
       "delve",

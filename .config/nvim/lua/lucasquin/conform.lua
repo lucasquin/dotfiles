@@ -18,7 +18,7 @@ M.config = function()
       markdown = { "prettier_d" },
       graphql = { "prettier_d" },
       lua = { "stylua" },
-      go = { "golines" },
+      go = { "gofumpt", "goimports" },
     },
   }
 end
