@@ -5,7 +5,7 @@ require "lucasquin.autocmds"
 
 Spec "lucasquin.neotree"
 
--- Colorscheme and syntax highlight specs
+-- Colorscheme and syntax highlight 
 Spec "lucasquin.colorscheme-tokyonight"
 Spec "lucasquin.colorscheme-dracula"
 Spec "lucasquin.colorscheme-vscode"
@@ -24,7 +24,6 @@ Spec "lucasquin.conform"
 Spec "lucasquin.devicons"
 Spec "lucasquin.lualine"
 Spec "lucasquin.gitsigns"
-Spec "lucasquin.modicator"
 Spec "lucasquin.ccc"
 Spec "lucasquin.statuscol"
 Spec "lucasquin.nvim-ufo"
