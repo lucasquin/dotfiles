@@ -1,8 +1,9 @@
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
+ZSH_THEME=robbyrussell
 
 # Path to powerlevel10k theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # List of plugins used
 plugins=(git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting)
@@ -59,3 +60,4 @@ alias :q="exit"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export PATH=$PATH:$(go env GOPATH)/bin
