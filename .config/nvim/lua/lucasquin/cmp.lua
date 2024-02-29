@@ -73,6 +73,12 @@ M.config = function()
         before = tailwind_formatter,
       },
     },
+    window = {
+      completion = {
+        border = "rounded",
+      },
+      documentation = cmp.config.window.bordered(),
+    },
   }
 end
 

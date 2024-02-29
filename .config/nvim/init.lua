@@ -5,10 +5,8 @@ require "lucasquin.autocmds"
 
 Spec "lucasquin.neotree"
 
--- Colorscheme and syntax highlight 
-Spec "lucasquin.colorscheme-tokyonight"
+-- Colorscheme and syntax highlight
 Spec "lucasquin.colorscheme-dracula"
-Spec "lucasquin.colorscheme-vscode"
 Spec "lucasquin.treesitter"
 
 -- LSP specs
