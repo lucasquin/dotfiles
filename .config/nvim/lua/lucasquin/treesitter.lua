@@ -11,7 +11,7 @@ M.config = function()
   vim.g.skip_ts_context_commentstring_module = true
   -- vim.treesitter.language.register("typescript", "svelte")
   require("nvim-treesitter.configs").setup {
-    ensure_installed = { "lua", "markdown", "markdown_inline", "dap_repl" },
+    ensure_installed = { "lua", "markdown", "markdown_inline" },
     ignore_install = { "" },
     sync_install = false,
     auto_install = true,

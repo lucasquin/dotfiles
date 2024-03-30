@@ -1,52 +1,107 @@
-#!/bin/bash
-dotfilesDir=$(pwd)
+function InstallDots {
+	dest="${HOME}/${1}"
+	dot=$(pwd)
 
-function CriarSymlink {
-  destino="${HOME}/${1}"
-  data=$(date +%Y-%m-%d-%H%M)
+	if [ -e "${dest}" ]; then
+		if [ -d "${dest}" ]; then
+			echo "Removing existing directory ${dest}..."
+			rm -rf "${dest}"
+		else
+			echo "Removing existing file ${dest}..."
+			rm "${dest}"
+		fi
+	fi
 
-  if [ -h ~/${1} ]; then
-    echo "Removendo symlink existente: ${destino}"
-    rm ${destino}
+	if [ -h "${dest}" ]; then
+		echo "Removing existing symlink ${dest}..."
+		rm "${dest}"
+	fi
 
-  elif [ -f "${destino}" ]; then
-    echo "Realizando backup de arquivo existente: ${destino}"
-    mv ${destino}{,.${data}}
+	if [ -h "${dest}" ]; then
+		echo "Removing symlink ${dest}..."
+		rm "${dest}"
+	fi
 
-  elif [ -d "${destino}" ]; then
-    echo "Realizando backup de diretorio existente: ${destino}"
-    mv ${destino}{,.${data}}
-  fi
-
-  echo "Criando um novo symlink: ${destino}"
-  ln -s ${dotfilesDir}/${1} ${destino}
+	echo "Creating a new symlink for ${1}"
+	ln -s "${dot}/${1}" "${dest}"
 }
 
-if [ -d "${dotfilesDir}/.config" ]; then
-  cd "${dotfilesDir}/.config"
-  for file in *; do
-    if [ -e "${HOME}/.config/${file}" ]; then
-      echo "O link simbólico ${HOME}/.config/${file} já existe."
-    else
-      ln -s "${dotfilesDir}/.config/${file}" "${HOME}/.config/"
-      echo "Link simbólico criado para ${file} em ${HOME}/.config/"
-    fi
-  done
-else
-  echo "A pasta .config não foi encontrada em ${dotfilesDir}."
-fi
+function InstallTool {
+	command=$1
+	package=$2
 
-# Cria a pasta de Applications para appimage, se não existir
-if [ ! -d "${HOME}/applications/" ]; then
-  mkdir "${HOME}/applications/"
-fi
+	if ! command -v "paru" &>/dev/null; then
+		echo "Installing paru..."
+		sudo pacman -S --needed base-devel
+		cd ~/Repository/
+		git clone https://aur.archlinux.org/paru.git
+		cd paru
+		makepkg -si
+	else
+		echo "paru already installed."
+	fi
 
-CriarSymlink .bashrc
-CriarSymlink .bash_aliases
-CriarSymlink .gitconfig
-CriarSymlink .gitignore
-CriarSymlink .gitattributes
-CriarSymlink .zshrc
-CriarSymlink commit-template.txt
-CriarSymlink .vimrc
-CriarSymlink .XCompose
+	if ! command -v "${command}" &>/dev/null; then
+		echo "Installing ${package}..."
+		sudo paru -S "${package}"
+	else
+		echo "${package} already installed."
+	fi
+}
+
+function InstallFonts {
+	fonts=$1
+	fontsDir="${HOME}/.local/share/fonts/"
+
+	if [ ! -d "${local_fonts_dir}" ]; then
+		echo "Creating fonts directory ${fontsDir}..."
+		mkdir -p "${fontsDir}"
+	fi
+
+	if [ -d "${fonts}" ]; then
+		echo "Installing fonts from ${fonts}..."
+		cp -r "${fonts}/"* ${fontsDir}
+		fc-cache -f -v
+	else
+		echo "Fonts directory ${fonts} not found."
+	fi
+}
+
+files=(
+    .XCompose
+	.bash_aliases
+    .bashrc
+    .gitattributes
+	.gitconfig
+    .gitignore-global
+    .vimrc
+	.zshrc
+	commit-template.txt
+
+	.config/alacritty
+	.config/hypr
+	.config/kitty
+	.config/nvim
+    .config/waybar
+	.config/wofi
+)
+
+for file in "${files[@]}"; do
+	InstallDots "${file}"
+done
+
+# command - package
+tools=(
+	"git git"
+	"node nodejs"
+	"npm npm"
+	"go go"
+	"rg ripgrep"
+	"unzip unzip"
+)
+
+for tool in "${tools[@]}"; do
+	InstallTool ${tool}
+done
+
+InstallFonts "fonts"

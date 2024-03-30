@@ -40,6 +40,7 @@ M.config = function()
       "stylua",
       "gofumpt",
       "goimports",
+      "shfmt",
 
       -- Debug Adapters
       "delve",

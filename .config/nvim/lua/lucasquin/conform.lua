@@ -19,6 +19,7 @@ M.config = function()
       graphql = { "prettier_d" },
       lua = { "stylua" },
       go = { "gofumpt", "goimports" },
+      sh = { "shfmt" }
     },
   }
 end

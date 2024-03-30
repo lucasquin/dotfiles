@@ -73,10 +73,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
-
-export XKB_DEFAULT_LAYOUT=us
-export XKB_DEFAULT_VARIANT=intl
-export PATH=$PATH:~/Applications
