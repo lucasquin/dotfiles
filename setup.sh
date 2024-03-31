@@ -1,3 +1,35 @@
+# command - package
+tools=(
+	"node nodejs"
+	"npm npm"
+	"go go"
+	"rg ripgrep"
+	"unzip unzip"
+	"swww swww"
+	"zsh zsh"
+)
+
+files=(
+	.XCompose
+	.bash_aliases
+	.bashrc
+	.gitattributes
+	.gitconfig
+	.gitignore-global
+	.vimrc
+	.zshrc
+	commit-template.txt
+
+	.config/alacritty
+	.config/hypr
+	.config/kitty
+	.config/nvim
+	.config/waybar
+	.config/wofi
+	.config/dolphinrc
+	.config/kdeglobals
+)
+
 function InstallDots {
 	dest="${HOME}/${1}"
 	dot=$(pwd)
@@ -29,6 +61,13 @@ function InstallDots {
 function InstallTool {
 	command=$1
 	package=$2
+
+	if ! command -v "git" &>/dev/null; then
+		echo "Installing git..."
+		sudo pacman -S git
+	else
+		echo "git already installed."
+	fi
 
 	if ! command -v "paru" &>/dev/null; then
 		echo "Installing paru..."
@@ -67,41 +106,17 @@ function InstallFonts {
 	fi
 }
 
-files=(
-    .XCompose
-	.bash_aliases
-    .bashrc
-    .gitattributes
-	.gitconfig
-    .gitignore-global
-    .vimrc
-	.zshrc
-	commit-template.txt
-
-	.config/alacritty
-	.config/hypr
-	.config/kitty
-	.config/nvim
-    .config/waybar
-	.config/wofi
-)
-
 for file in "${files[@]}"; do
 	InstallDots "${file}"
 done
-
-# command - package
-tools=(
-	"git git"
-	"node nodejs"
-	"npm npm"
-	"go go"
-	"rg ripgrep"
-	"unzip unzip"
-)
 
 for tool in "${tools[@]}"; do
 	InstallTool ${tool}
 done
 
 InstallFonts "fonts"
+
+if [ "$(basename "${SHELL}")" != "zsh" ]; then
+	echo "Changing shell to Zsh..."
+	chsh -s /bin/zsh
+fi
