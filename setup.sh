@@ -7,6 +7,7 @@ tools=(
 	"unzip unzip"
 	"swww swww"
 	"zsh zsh"
+	"eza eza"
 )
 
 files=(
