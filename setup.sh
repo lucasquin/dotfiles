@@ -1,15 +1,4 @@
-# command - package
-tools=(
-	"node nodejs"
-	"npm npm"
-	"go go"
-	"rg ripgrep"
-	"unzip unzip"
-	"swww swww"
-	"zsh zsh"
-	"eza eza"
-)
-
+# Dotfiles
 files=(
 	.XCompose
 	.bash_aliases
@@ -59,65 +48,82 @@ function InstallDots {
 	ln -s "${dot}/${1}" "${dest}"
 }
 
-function InstallTool {
-	command=$1
-	package=$2
-
-	if ! command -v "git" &>/dev/null; then
-		echo "Installing git..."
-		sudo pacman -S git
-	else
-		echo "git already installed."
-	fi
-
-	if ! command -v "paru" &>/dev/null; then
-		echo "Installing paru..."
-		sudo pacman -S --needed base-devel
-		cd ~/Repository/
-		git clone https://aur.archlinux.org/paru.git
-		cd paru
-		makepkg -si
-	else
-		echo "paru already installed."
-	fi
-
-	if ! command -v "${command}" &>/dev/null; then
-		echo "Installing ${package}..."
-		sudo paru -S "${package}"
-	else
-		echo "${package} already installed."
-	fi
-}
-
-function InstallFonts {
-	fonts=$1
-	fontsDir="${HOME}/.local/share/fonts/"
-
-	if [ ! -d "${local_fonts_dir}" ]; then
-		echo "Creating fonts directory ${fontsDir}..."
-		mkdir -p "${fontsDir}"
-	fi
-
-	if [ -d "${fonts}" ]; then
-		echo "Installing fonts from ${fonts}..."
-		cp -r "${fonts}/"* ${fontsDir}
-		fc-cache -f -v
-	else
-		echo "Fonts directory ${fonts} not found."
-	fi
-}
-
 for file in "${files[@]}"; do
 	InstallDots "${file}"
 done
 
-for tool in "${tools[@]}"; do
-	InstallTool ${tool}
-done
+# Fonts
+fonts="fonts"
+fontsDir="${HOME}/.local/share/fonts/"
 
-InstallFonts "fonts"
+if [ ! -d "${local_fonts_dir}" ]; then
+	echo "Creating fonts directory ${fontsDir}..."
+	mkdir -p "${fontsDir}"
+fi
 
+if [ -d "${fonts}" ]; then
+	echo "Installing fonts from ${fonts}..."
+	cp -r "${fonts}/"* ${fontsDir}
+	fc-cache -f -v
+else
+	echo "Fonts directory ${fonts} not found."
+fi
+
+# Zsh
 if [ "$(basename "${SHELL}")" != "zsh" ]; then
 	echo "Changing shell to Zsh..."
 	chsh -s /bin/zsh
+fi
+
+# Git
+if ! command -v "git" &>/dev/null; then
+	echo "Installing git..."
+	sudo pacman -S git
+else
+	echo "git already installed."
+fi
+
+# Paru
+if ! command -v "paru" &>/dev/null; then
+	echo "Installing paru..."
+	sudo pacman -S --needed base-devel
+	cd ~/Repository/
+	git clone https://aur.archlinux.org/paru.git
+	cd paru
+	makepkg -si
+else
+	echo "paru already installed."
+fi
+
+# Tools and packages
+tools=( # command-package
+	"node nodejs"
+	"npm npm"
+	"go go"
+	"rg ripgrep"
+	"unzip unzip"
+	"swww swww"
+	"zsh zsh"
+	"eza eza"
+	"thunderbird thunderbird"
+	"timeshift timeshift"
+	"webcord webcord"
+)
+
+package_list=()
+
+for tool in "${tools[@]}"; do
+	IFS=' ' read -ra ADDR <<<"${tool}"
+	if ! command -v "${ADDR[0]}" &>/dev/null; then
+		package_list+=("${ADDR[1]}")
+	else
+		echo "${ADDR[1]} already installed."
+	fi
+done
+
+if [ ${#package_list[@]} -ne 0 ]; then
+	echo "Installing packages..."
+	sudo paru -S "${package_list[@]}"
+else
+	echo "All packages are already installed."
 fi
