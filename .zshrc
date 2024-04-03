@@ -1,3 +1,8 @@
+# Oh my zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+source $ZSH/oh-my-zsh.sh
+
 # List of plugins used
 plugins=(git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting)
 
@@ -46,7 +51,5 @@ alias pl='$aurhelper -Qs' # list installed package
 alias cls="clear"
 alias :q="exit"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+# Golang
 export PATH=$PATH:$(go env GOPATH)/bin
