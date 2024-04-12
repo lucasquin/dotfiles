@@ -8,8 +8,8 @@ set rnu
 set ruler
 set visualbell
 set encoding=utf-8
-set wrap
-set textwidth=79
+set nowrap
+set textwidth=80
 set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2

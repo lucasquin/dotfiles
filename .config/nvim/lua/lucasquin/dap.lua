@@ -1,27 +1,21 @@
 local M = {
-  "mfussenegger/nvim-dap",
-  ft = {
-    "go",
-  },
-  dependencies = {
-    { "rcarriga/nvim-dap-ui", opts = true },
-    { "theHamsta/nvim-dap-virtual-text", opts = true },
-    { "LiadOz/nvim-dap-repl-highlights", opts = true },
-  },
+  "rcarriga/nvim-dap-ui",
+  dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 }
 
 M.config = function()
   local dap = require "dap"
   local dapui = require "dapui"
+  require("dapui").setup()
 
   vim.fn.sign_define("DapBreakpoint", { text = "⬤", texthl = "DiagnosticError", linehl = "", numhl = "" })
   vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticWarn", linehl = "", numhl = "" })
   vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "DiagnosticInfo", numhl = "" })
-  vim.fn.sign_define( "DapStopped", { text = "󰁕 ", texthl = "DiagnosticWarn", linehl = "DapStoppedLine", numhl = "DapStoppedLine" })
+  vim.fn.sign_define(
+    "DapStopped",
+    { text = "󰁕 ", texthl = "DiagnosticWarn", linehl = "DapStoppedLine", numhl = "DapStoppedLine" }
+  )
   vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "", linehl = "", numhl = "" })
-
-  require("nvim-dap-repl-highlights").setup()
-  require("nvim-dap-virtual-text").setup()
 
   -- Automatically open UI
   dap.listeners.after.event_initialized["dapui_config"] = function()
