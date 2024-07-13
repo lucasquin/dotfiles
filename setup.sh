@@ -17,12 +17,8 @@ dotfiles=(
 	.gitignore-global
 	.vimrc
 	commit-template.txt
+  .config/*
 )
-
-if [ ! -d ~/Clone/oh-my-hyprland ]; then
-	echo -e "${warning} Cloning oh-my-hyprland..."
-	git clone git@github.com:lucasquin/oh-my-hyprland.git ~/Clone/oh-my-hyprland
-fi
 
 if [ ! -d ~/Clone/oh-my-neovim ]; then
 	echo -e "${warning} Cloning oh-my-neovim..."
@@ -39,12 +35,6 @@ function InstallNeovim {
 
 	ln -s ~/Clone/oh-my-neovim ~/.config/nvim || return 1
 	echo -e "${sucess} Neovim configuration installed successfully."
-}
-
-function InstallHyprland {
-  cd ~/Clone/oh-my-hyprland/scripts/
-  ./installer.sh
-	echo -e "${sucess} Hyprland configuration installed successfully."
 }
 
 function InstallDots {
@@ -80,5 +70,3 @@ InstallNeovim
 for file in "${dotfiles[@]}"; do
 	InstallDots "${file}"
 done
-
-InstallHyprland
