@@ -18,6 +18,7 @@ dotfiles=(
 	.vimrc
 	commit-template.txt
   .config/*
+  .zshrc
 )
 
 if [ ! -d ~/Clone/oh-my-neovim ]; then
