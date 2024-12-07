@@ -11,13 +11,13 @@
 	provider = generic
 
 [pull]
-	rebase = true
+	rebase = true 
 
 [rebase]
 	autosquash = true
 
 [merge]
-	ff = false
+	ff = true 
 
 [commit]
 	template = ~/commit-template.txt
@@ -42,3 +42,9 @@
 	autocrlf = input
 	quotepath = false
 	editor = nvim
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[push]
+	autoSetupRemote = true

@@ -10,15 +10,13 @@ fail="${RED}==>${NC}"
 
 dotfiles=(
 	.XCompose
-	.bash_aliases
-	.bashrc
 	.gitattributes
 	.gitconfig
 	.gitignore-global
 	.vimrc
 	commit-template.txt
-  .config/*
-  .zshrc
+	.config/*
+	.zshrc
 )
 
 if [ ! -d ~/Clone/oh-my-neovim ]; then
