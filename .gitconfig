@@ -1,40 +1,9 @@
-[credential]
-	helper = store --file ~/.gitcredentials
-	gitLabAuthModes = browser
-	credentialStore = store
-
 [user]
 	email = lucaslquintino@gmail.com
 	name = lucasquin
 
-[credential "https://git.mpmg.mp.br"]
-	provider = generic
-
-[pull]
-	rebase = true 
-
-[rebase]
-	autosquash = true
-
-[merge]
-	ff = true 
-
-[commit]
-	template = ~/commit-template.txt
-
-[init]
-	defaultBranch = main
-
-[color]
-	ui = true
-	status = auto
-	diff = auto
-	branch = auto
-	grep = auto
-
-[alias]
-	c = commit
-	s = status -sb
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 
 [core]
 	excludesfile = ~/.gitignore-global
@@ -42,9 +11,6 @@
 	autocrlf = input
 	quotepath = false
 	editor = nvim
-
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 
 [push]
 	autoSetupRemote = true
